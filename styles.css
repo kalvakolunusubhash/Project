@@ -1,0 +1,17 @@
+body {
+  background-image: url('images/pic1.jpeg');
+  background-repeat: no-repeat;
+  background-attachment: fixed; 
+  background-size: 100% 100%;
+}
+
+img {
+  border-radius: 50%;
+}
+.summary{
+    margin-left: 50px;
+}
+p{
+    font-style: italic;
+}
+
