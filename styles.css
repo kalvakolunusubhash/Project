@@ -1,0 +1,22 @@
+img{
+    height:250px;
+    width:350px;
+     opacity: 1;
+  display: block;
+  transition: .5s ease;
+  backface-visibility: hidden;
+}
+
+img:hover{
+  opacity: 0.3;
+}
+body{
+     background-image: url("images/pexels-photo-1435752.jpeg");
+    background-repeat: no-repeat;
+     background-attachment: fixed; 
+  background-size: 100% 100%;
+    
+
+}
+
+
