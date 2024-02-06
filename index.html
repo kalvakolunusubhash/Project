@@ -1,0 +1,237 @@
+<html>
+    <head>
+        <style>
+            body{
+              width:100vh;
+            margin-left: 400px;
+                
+                
+            }
+            @media print{
+                body{
+                    margin-left: 0px;
+                    
+                }
+            }
+        
+        
+        </style>
+            </head>
+
+        <body>
+            <center>
+                <h1 style="font-size: 40px"><b> A Survey of Bayesian<br> Data Mining</b></h1>
+                <p> Stefan Arnborg<br>
+              Royal Institute of Technology and<br>
+                Swedish Institute of Computer Science, Sweden</p>
+                <h1><b>ABSTRACT</b></h1>
+            </center>
+            <p><i> This chapter reviews the fundamentals of inference, and gives a motivation for Bayesian
+ analysis. The method is illustrated with dependency tests in data sets with categorical data
+ variables, and the Dirichlet prior distributions. Principles and problems for deriving
+ causality conclusions are reviewed, and illustrated with Simpson’s paradox. The selection
+ of decomposable and directed graphical models illustrates the Bayesian approach.
+ Bayesian and EM classification is shortly described. The material is illustrated on two
+ cases, one in personalization of media distribution, one in schizophrenia research. These
+ cases are illustrations of how to approach problem types that exist in many other
+ application areas.</i></p>
+            <center><h1><b>INTRODUCTION</b></h1></center>
+            <p> Data acquired for analysis can have many different forms. We will describe the analysis
+ of data that can be thought of as samples drawn from a population, and the conclusions will
+ be phrased as properties of this larger population. We will focus on very simple models. As
+ the investigator’s understanding of a problem area improves, the statistical models tend to
+ become complex. Some examples of such areas are genetic linkage studies, ecosystem
+ studies, and functional MRI investigations, where the signals extracted from measurements
+ are very weak but potentially extremely useful for the application area. Experiments are
+ typically analyzed using a combination of visualization, Bayesian analysis, and conventional
+ test- and confidence-based statistics. In engineering and commercial applications of data  mining, the goal is not normally to arrive at eternal truths, but to support decisions in design
+ and business. Nevertheless, because of the competitive nature of these activities, one can
+ expect well-founded analytical methods and understandable models to provide more useful
+ answers than ad hoc ones</p>
+        <p>&nbsp;&nbsp;&nbsp;&nbsp; This text emphasizes characterization of data and the population from which it is drawn
+ with its statistical properties. Nonetheless, the application owners have typically very
+ different concerns: they want to understand; they want to be able to predict and ultimately
+ to control their objects of study. This means that the statistical investigation is a first phase
+ that must be accompanied by activities extracting meaning from the data. There is relatively
+ little theory on these later activities, and it is probably fair to say that their outcome depends
+ mostly on the intellectual climate of the team—of which the analyst is only one member.</p>
+<h3><b> Summary</b></h3>
+            <p>&nbsp;&nbsp;&nbsp;&nbsp; Our goal is to explain some advantages of the Bayesian approach and to show how
+ probability models can display the information or knowledge we are after in an application.
+ We will see that, although many computations of Bayesian data-mining are straightforward,
+ one soon reaches problems where difficult integrals have to be evaluated, and presently only
+ Markov Chain Monte Carlo (MCMC) and expectation maximization (EM) methods are
+ available. There are several recent books describing the Bayesian method from both a
+ theoretical (Bernardo & Smith, 1994) and an application-oriented (Carlin & Louis, 1997)
+ perspective. Particularly, Ed Jaynes’ unfinished lecture notes, now available in  (Jaynes, 2003)
+ have provided inspiration for me and numerous students using them all over the world. A
+ current survey of MCMC methods, which can solve many complex evaluations required in
+ advanced Bayesian modeling, can be found in the book Markov Chain Monte Carlo in
+ Practice (Gilks, Richardson, & Spiegelhalter 1996).  Theory and use of graphical models have
+ been explained by Lauritzen (1996) and Cox and Wermuth  (1996). A tutorial on Bayesian
+ network approaches to data mining is found in Heckerman (1997). We omit, for reasons of
+ space availability, a discussion of linear and generalized linear models, which are described,
+ e.g., by Hand, Mannila, and Smyth (2001). Another recent technique we omit is optimal
+ recursive Bayesian estimation with particle filters, which is an important new application of
+ MCMC (Doucet, de Freitas & Gordon 2001).</p>
+   <center> <h1><b>SCHOOLS OF STATISTICS</b></h1></center>
+        <p>&nbsp;&nbsp;&nbsp;&nbsp Statistical inference has a long history, and one should not assume that all scientists
+ and engineers analyzing data have the same expertise and would reach the same type of
+ conclusion using the objectively “right” method in the analysis of a given data set. Probability
+ theory is the basis of statistics, and it links a probability model to an outcome. But this linking
+ can be achieved by a number of different principles. A pure mathematician interested in
+ mathematical probability would only consider abstract spaces equipped with a probability
+ measure. Whatever is obtained by analyzing such mathematical structures has no immediate
+ bearing on how we should interpret a data set collected to give us knowledge about the world.
+ When it comes to inference about real-world phenomena, there are two different and
+ complementary views on probability that have competed for the position of  “the” statistical method. With both views, we consider models that tell how data is generated in terms of
+ probability. The models used for analysis reflect our - or the application owner’s - understand
+ing of the problem area. In a sense they are hypotheses, and in inference a hypothesis is often
+ more or less equated with a probability model. Inference is concerned with saying something
+ about which probability model generated our data — for this reason inference was sometimes
+ called inverse probability (Dale, 1991).</p>
+        <h1><b>Bayesian Inference</b></h1>
+            
+            <p>&nbsp;&nbsp;&nbsp;&nbsp; The first applications of inference used Bayesian analysis, where we can directly talk
+ about the probability that a hypothesis H generated our observed data D. Using probability
+ manipulation and treating both data D and hypotheses H1 and H2 as events we find:</p>
+            <img src="img1.png">
+            <p> &nbsp;&nbsp;&nbsp;&nbsp;This rule says that the odds we assign to the choice between H1 and H 2, the prior
+ odds PH1
+ ( )/P(H2
+ ), are changed to the posterior odds P(H1 
+|D)/P(H 2 
+|D), by multipli
+cation with the Bayes factor P(D |H 1
+ )/P(D |H2
+ ). In other words, the Bayes factor contains
+ all information provided by the data relevant for choosing between the two hypotheses. The
+ rule assumes that probability is subjective, dependent on information the observer holds, e.g.,
+ by having seen the outcome D of an experiment. If we have more than two hypotheses, or
+ a parameterized hypothesis, similar calculations lead to formulas defining a posterior
+ probability distribution that depends on the prior distribution:</p>
+            <img src="img2.png">
+            <p> &nbsp;&nbsp;&nbsp;&nbsp; where   f (λ )  is the prior density and   f (λ |D)  is the posterior density, and  ∝   is a sign that
+ indicates that a normalization constant (independent of  λ  but not of D) has been omitted.
+ For posteriors of parameter values the concept of credible set is important. A q-credible set
+ is a set of parameter values among which the parameter has a high and known probability q
+ of lying, according to the posterior distribution. The Bayes factor estimates the support given
+ by the data to the hypotheses. Inevitably, random variation can give support to the “wrong”
+ hypothesis. A useful rule is the following: if the Bayes factor is k in favor of  H1
+ , then the
+ probability of getting this factor or larger from an experiment where  H2
+  was the true
+ hypothesis is less than 1/k. For most specific hypothesis pairs, the bound is much better
+ (Royall, 2000)</p>
+            
+          <h1><b>   A Small Bayesian Example</b></h1>
+ <p> &nbsp;&nbsp;&nbsp;&nbsp;We will see how Bayes’ method works with a small example, in fact the same example
+ used by Thomas Bayes(1703 — 1762). Assume we have found a coin among the belongings
+ of a notorious gambling shark. Is this coin fair or unfair? The data  we can obtain are a sequence
+ of outcomes in a tossing experiment, represented as a binary string. Let one hypothesis be
+ that the coin is fair,  Hf
+ . Then P(D |H f
+ )= 2−n, where n=|D| is the number of tosses made.
+ We must also have another hypothesis that can fit better or worse to an outcome. Bayes used
+ a parameterized model where the parameter is the unknown probability, p, of getting a one
+ in a toss. For this model Hp
+ , we have P(D |H p
+ )= ps(1− p)f for a sequence D with s
+ successes and f failures. The probability of an outcome under  Hp
+  is clearly a function of p.
+ If we assume, with Bayes, that the prior distribution of p is uniform in the interval from 0 to
+ 1, we get by Equation (2) a posterior distribution f(p|D)= cps(1− p)f, a Beta distribution
+ where the normalization constant is c= (n+1)!/(s!f!). This function has a maximum at the
+ observed frequency s/n. We cannot say that the coin is unfair just because s is not the same
+ as f, since the normal variation makes inequality very much more likely than equality for a large
+ number of tosses even if the coin is fair.
+ If we want to decide between fairness and unfairness we must introduce a composite
+ hypothesis by specifying a probability distribution for the parameter p in Hp
+ . A conventional
+ choice is again the uniform distribution. Let Hu
+ be the hypothesis of unfairness, expressed
+ as  Hp
+  with a uniform distribution on the parameter p. By integration we find P( D|Hu
+ ) =s!f!
+ / (n+1)!. In other words, the number of ones in the experiment is uniformly distributed.
+ Suppose now that we toss the coin twelve times and obtain the sequence 000110000001, three
+ successes and nine failures. The Bayes factor in favor of unfairness is 1.4. This is a too small
+ value to be of interest. Values above 3 are worth mentioning, above 30 significant, and factors
+ above 300 would give strong support to the first hypothesis. In order to get strong support
+ to fairness or unfairness in the example we would need much more than 12 tosses.</p>
+            <h1><b> Bayesian Decision Theory and Multiple Hypothesis<br>
+ Comparisons</b></h1>
+ <p>The posterior  gives a numerical measure of belief in the two hypotheses compared.
+ Suppose our task is to decide by choosing one of them. If the Bayes factor is greater than
+ one, H1
+ is more likely than H2
+ , assuming no prior preference of either. But this does not
+ necessarily mean that H1
+ is true, since the data can be misleading by natural random
+ fluctuation. The recipe for choosing is to make the choice with smallest expected cost (Berger,
+     1985). This rule is also applicable when simultaneously making many model comparisons.</p>
+          <p>    
+ When making inference for the parameter value of a parameterized model, equation (2)
+          
+ gives only a distribution over the parameter value. If  we want a point estimate l of the
+ parameter value λ  , we should also use Bayesian decision theory. We want to minimize the
+ loss incurred by stating the estimate l when the true value is λ  , L(l, λ ). But we do not know
+ λ . As with a discrete set of decision alternatives, we minimize the expected loss over the
+ posterior for λ  , by integration. If the loss function is the squared error, the optimal estimator
+ is the mean of f(λ |D); if the loss is the absolute value of the error, the optimal estimator i the median; with a discrete parameter space, minimizing the probability of an error (no matter
+ how small) gives the Maximum A Posteriori (MAP) estimate. As an example, when tossing
+ a coin gives s heads and f tails, the posterior with a uniform prior is f(p|s,f)= cps(1− p)f,
+ the MAP estimate for p is the observed frequency s/(s+f), the mean estimate is the Laplace
+ estimator (s+1)/(s+f+2) and the median is a fairly complicated quantity expressible, when
+ s and f are known, as the solution to an algebraic equation of high degree.</p>
+            
+            
+            
+            <h3><b>Test-Based Inference</b></h3> 
+ <p>&nbsp;&nbsp;&nbsp;&nbsp;The irrelevance of long run properties of hypothesis probabilities made one school of
+ statistics reject subjective probability altogether. This school works with what is usually
+ known as objective probability. Data is generated in repeatable experiments with a fixed
+ distribution of the outcome. The device used by a practitioner of objective probability is
+ testing. For a single hypothesis H, a test statistic is designed as a mapping f of the possible
+ outcomes to an ordered space, normally the real numbers. The data probability function
+ P(D|H) will now induce a distribution of the test statistic on the real line. We continue by
+ defining a rejection region, an interval with low probability, typically 5% or 1%. Next, the
+ experiment is performed or the data D is obtained, and if the test statistic f(D) falls in the
+ rejection region, the hypothesis H is rejected. For a parameterized hypothesis, rejection
+ depends on the value of the parameter. In objective probability inference, we use the concept
+ of a confidence interval, whose definition is unfortunately rather awkward and is omitted (it
+ is discussed in all elementary statistics texts). Unfortunately, there is no strong reason to
+ accept the null hypothesis just because it could not be rejected, and there is no strong reason
+ to accept the alternative just because the null was rejected. But this is how testing is usually
+ applied. The p-value is the probability of obtaining a test statistic not less extreme than the
+ one obtained, under the null hypothesis, so that a p-value less than 0.01 allows one to reject
+ the null hypothesis on the 1% level.</p>
+ <h3><b>A Small Hypothesis Testing Example</b></h3>
+ <p>&nbsp;&nbsp;&nbsp;&nbsp;Let us analyze coin tossing again. We have the two hypotheses  Hf
+   and  Hu
+ . Choose
+ H
+ f
+ , the coin is fair, as the null hypothesis. Choose the number of successes as test statistic.
+ Under the null hypothesis we can easily compute the p-value, the probability of obtaining
+ nine or more failures with a fair coin tossed 12 times, which is .075. This is 7.5%, so the
+ experiment does not allow us to reject fairness at the 5% level. On the other hand, if the testing
+ plan was to toss the coin until three heads have been seen, the p-value should be computed
+ as the probability of seeing nine or more failures before the third success, which is .0325. Since
+ this is 3.25%, we can now reject the fairness hypothesis at 5%. The result of a test depends
+ thus not only on the choice of hypothesis and significance level, but also on the experimental
+     design, i.e., on data we did not see but could have seen.</p>
+ <h3><b>Discussion: Objective vs. Subjective Probability</b></h3>
+ <p>&nbsp;&nbsp;&nbsp;&nbsp;Considering that both types of analysis are used heavily in practical applications by
+ the most competent analysts, it would be somewhat optimistic if one thought that one of these</p>
+        </body>
+    
+    
+    
+
+
+
+
+
+
+</html>
