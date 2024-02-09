@@ -1,0 +1,823 @@
+ <html>
+          <head>
+        <style>
+            body{
+              width:100vh;
+            margin-left: 400px;
+                
+         }
+            @media print{
+                body{
+                    margin-left: 0px;
+                    
+                }
+            }
+            th{
+                text-decoration: underline;padding-right: 25px
+            }
+            td{
+                padding-right: 25px
+            }
+            hr{
+                border: 2px solid black;
+                margin-top: -20px;
+            }
+            ol.slist,ol.alist {
+                 list-style: none;
+            }
+            .slist li:before {
+  
+  content: "S" attr(seq) ;
+                  margin-right:5px;
+}
+            .alist li:before {
+  
+  content: "A" attr(seq) ;
+                margin-right:5px;
+}
+
+        </style>
+          
+            </head>
+    <body>
+        <center>
+            <h1 style="font-size: 40px"><b>The Structuring Of :<br> The Strategic-Decision<br>Making Process</b></h1>
+                <h1 style="padding-top: 40px;"><b>Introduction: A Systematic<br>
+ Procedure for Structuring the<br>
+ Decision-Making Process </b></h1></center>
+        <hr>
+        <p> The basic types of decision models presented in the previous chapter (rational,
+ descriptive, political, and ambiguous models) relies on quantitative values
+ (money, time, or probabilities) that are most suitable for structured and semi
+structured decision problems. These basic models can be used as starting
+ models to guide the structuring process of strategic decision problems. First,
+ a systematic procedure for structuring the strategic decision making process is
+ presented, using decision matrix and decision trees. The need for the sensitivity
+ analysis is introduced, and will be illustrated with more detail in the next chapter.
+ Some problems that must be considered in this structuring process are
+ illustrated in form ofhidden traps and paradoxes.
+ <br>The first step in the decision-making process is to formulate the problem. It is
+ possible that an inadequate formulation of the problem leads to a result that  reduces efficiency and efficacy, since an incorrect formulation can define a
+ wrong problem.</p>
+        <p> The person responsible for structuring the decision making model in a business
+ is in charge of “asking the right questions, discovering the relevant
+ elements; identifying the significant parameters; determining the signifi
+cant relationships among the selected elements and parameters; speculat
+ing about the “right size” and “correct formulation” of the problem; and
+ evaluating the temporal characteristics (life cycles, duration, stability
+ and discontinuity)” (Luftman et al., 1993).</p>
+        <p> Structuring a decision-making process depends on:</p>
+        <ol type="a">
+            <li> the purposeof the decision;</li>
+            <li> timeandcostlimitations; and</li>
+            <li> the complexityof the problem</li>
+         </ol>
+        <p>The solution to any decision making problem can be visualized in five stages:</p>
+        <ol>
+            <li> perception: visualizing  the need and opportunity for the decision;</li>
+            <li> formulation of the action alternatives: evaluate the alternatives in terms of
+                their contributions;</li>
+            <li> choosing one or more alternatives to be executed;</li>
+            <li> implementation; and 50 feedback.</li>
+             </ol>
+        <p> These stages are based on procedures known in Management Science as
+ PDCA (Plan, Do, Check, and Action). A more specific systematic procedure
+ for structuring a decision-making process is (Monks, 1985; Simon, 1997;
+ Clemen & Reilly, 2001):</p>
+        <ol>
+            <li> Definethe problem and the relevant variables (parameters);</li>
+            <li> Establish the criteria, factors, goals, or objectives of the decision (*);</li>
+            <li> Relate the parameters to the objectives, i.e., model the problem;</li>
+            <li> Generate the decision alternatives and the possible alternative sce
+narios, for different values and parameters;</li>
+            <li> Evaluate the alternatives and choose that which best satisfies the objec
+tives;</li>
+            <li> Implement the decision chosen and monitor the results through:</li>
+         </ol>
+        <ol type="a">
+            <li> Sensitivity analysis of the results to be able to answer “what if?”
+type questions.</li>
+            <li> Learning, using feedback from the results to be able to change or
+ improve the method.</li>
+            <li>In decision analysis, criteria, factors, goals, and objectives are
+ terms used without a clear distinction. Inmathematical program
+ming, a goal or an objective is expressed by a mathematical
+ function to be optimized.</li>
+             </ol>
+        <center><h1><b> Building the Model</b></h1></center>
+        <hr>
+        <p> A model describes, represents, and imitates the procedures that happen in the
+ real world, establishing the relationship of the variables with the objectives in
+ the best way possible, observing the time and cost limitations. The models can
+ be of various types (Gordon, 1978; Monks, 1985):</p>
+        <ol type="a">
+            <li><b>Verbal</b>-when described and represented by phrases and sentences
+ (examples: questionnaires, expert systems, etc.);</li>
+            <li><b> Physical</b>– when represented by some kind of material or hardware,
+ changing their dimensions, size, or format (examples: miniature models,
+ prototypes);</li>
+            <li><b>Schematic</b> – when represented by graphics, tables, diagrams, or decision
+ tree;</li>
+            <li><b> Mathematical</b> – when represented by mathematical equations, numeri
+cal values, or symbolic logic values [examples: Linear programming,
+ (Hillier & Lieberman, 1980); Neural Networks, (Takefuji, 1996), etc.]</li>
+         </ol>
+        <ol type="a">
+      <li>  <p><b> Examples of Decision Problems</b></p></li>
+        <ol type="a">
+            <li><b> Marketing Manager:</b></li>
+         </ol>
+        <p>To launch a new product or not:</p>
+        <p>Possible decision alternatives:</p>
+        <ol class="alist">
+            <li seq="1"> Launch a new product in the market, or</li>
+            <li seq="2"> Do not launch a new product in the market.</li>
+         </ol>
+        <p> Possible states of the market:</p>
+        <ol class="slist">
+            <li seq="1"> Market in recession,</li>
+            <li seq="2"> Market stable, and</li>
+            <li seq="3"> Market in expansion.</li>
+         </ol>
+          <li><p><b>Inventory Manager</b></p></li>
+        <p>Buying decisions:</p>
+        <ol class="alist">
+            <li seq="1"> Purchase 100 units of a product.</li>
+            <li seq="2"> Purchase 300 units of a product.</li>
+            <li seq="3"> Don’t buy.</li>
+         </ol>
+        <p> Possible states</p>
+        <ol class="slist">
+            <li seq="1"> High demand,</li>
+            <li seq="2"> Low demand, and</li>
+            <li seq="3"> Unknown demand.</li>
+         </ol>
+        <li><p><b>Production Manager:</b></p></li>
+          <p> Mix of products to be assembled: x1 = automobiles, x2 = utility vehicles,
+ x3 = trucks and x4 = buses.</p>
+        <p> Decisions:</p>
+        <ol class="alist">
+            <li seq="1"> Produce 100 units of x1, 50 of x2, 45 of x3 and 20 of x4</li>
+            <li seq="2"> Produce only automobiles,</li>
+            <li seq="3"> Produce 100 units of x1, 100 units of x3 and 35 of x4, or</li>
+            <li seq="4"> Produce 1 utility vehicle for each 5 automobiles produced</li>
+         </ol>
+        <p> States:</p>
+        <ol class="slist">
+            <li seq="1"> only for internal market</li>
+            <li seq="2"> only for export, and</li>
+            <li seq="3"> for both internal and export market.</li>
+         </ol>
+       <li><p><b>
+ Service:</b></p></li>
+          <p>  Decisions</p>
+       
+        <ol class="alist">
+            <li seq="1"> Contract two vehicles for service</li>
+            <li seq="2"> Contract one larger vehicle, and</li>
+            <li seq="3"> Acquire a utility vehicle for one’s own use</li>
+            
+         </ol>
+        <p> States:</p>
+        <ol class="slist">
+            <li seq="1"> Forecast of up to 50 services per month</li>
+            <li seq="2"> Between 50 and 100 services per month, and</li>
+            <li seq="3"> Over 100 services per month.</li>
+         </ol>
+    </ol>
+        
+        
+        <h1><b>Decision Problem in Matrix Form</b></h1>
+        <hr>
+        <p> A mathematical decision model can be organized in a matrix form where:</p>
+        <ol type="a">
+            <li><b>The columns of the matrix represent the alternatives of decision.</b> 
+ Each column of the matrix represents one of the possible alternatives. Ai
+ is presented to the decider or the person who makes the decision. All the
+ possible alternatives for the decision should be formulated. We then can
+ say that the set of possible alternatives is exhaustive and covers all the
+ fields of definition of the problem. The alternatives should also be mutually
+ exclusive, i.e., one decision alternative excludes the others. The unknown
+ alternatives should be grouped into just one set to form the alternative,
+ “other alternatives”.</li>
+            <li><b>Possible states assumed by the problem are set  out along the line of the matrix.</b> 
+  All the possible statesof the problem should be placed
+ along the lines of the matrix, i.e., the alternative states that the problem can
+ assume. The states represent the possible results of the problem (market,
+ economy, population, etc.), or the results of actions taken by an adversary
+ when there is a situation of conflict. The possible states Sj
+ should form an
+ exhaustive and mutually exclusive set. Unknown states should appear
+ grouped along one of the lines of the matrix marked as “others.” A probability value estimating the possibility of occurrence P (Sj
+ ) is attrib
+uted to each Sj
+ state.</li>
+        </ol>
+        <p> Each element gji
+ of the decision matrix represents the gain (profit, loss, or cost)
+ of alternative Aj
+ (column j of the matrix) when state Si
+ occurs. The values of
+ these results should be predefined for all the possible alternatives and states. In
+ general, these values are approximated or estimated values based on past
+ experience and problems of the same type.
+ <br>The occurrence of each state is not always certain as to what happens with no
+risk-rational-decision problems. In the case of uncertainty or risk, each Sj state
+ is associated with a probability P(Sj). Since the possible states should form an
+ exhaustive set and should be mutually exclusive, the sum of probability of all the
+ states is equal to one. The value of each probability also should be estimated
+ by an expert or by the group of person of the decision-making process.
+ A decision matrix has the following format:</p>
+        <img src="img1.png">
+        <h1><b> Decision Tree</b></h1>
+        <hr>
+        <p>A decision matrix represents a decision process to be resolved in a single stage.
+ A decision tree is used to represent a sequential decision making process
+ through more than one stage of the decision (Figure 9.1).
+ <br>A decision tree is a schematic representation useful for representing the process
+ of decision making with multiple variables, multiple objectives, and multiple
+ decision stages, while the decision matrix represents just one of the stages in the
+ decision-making process.
+ <br>The decision tree structures any complex decision problem in a clear way since
+ it can identify the alternatives, the states and the possible scenarios. However,
+ its visualization becomes difficult when the size and complexity of the problem
+ increase, even using the resource of a computer software. This restriction is true
+ for all other types of representations of decision problems.</p>
+        <img src="img2.png">
+        <h1><b> Basic Structures of Decisions Problems</b></h1>
+        <hr>
+        <p> We are now ready to present the basic structures of decision problems found
+ in the literature of decision analysis. In the next chapters, these structures will
+ be expanded in the sense to include the complex factors and nonstructured
+ aspects that are common in strategic-decision problems (Clemen & Reilly,
+ 2001; Keeney & Raiffa, 1976; Naylor et al., 1971).
+ <br>Decision problems to select the best alternative under no-risk, uncertainty, or
+ risk situations will be discussed. For all cases, decision problems with single or
+ multiple criteria or goals, using utility values, will be presented. Also, a decision
+ model updated using feedback from additional information will be presented.</p>
+        <h1><b> Decision Problem with No Risk and One Criterion or
+ Goal</b></h1>
+        <hr>
+        <p> This decision problem has:</p>
+        <ol type="a">
+            <li> several decision alternatives (for instance, property A1, A2 and A3), and</li>
+            <li> one criterion or goal: cash payment, payment in 4 or 12 installments.</li>
+         </ol>
+        <p> Since this is a problem with no risks or uncertainties, all the relevant information
+ (gains or losses referring to each decision alternative) is known and the decision
+ maker chooses the alternative related to the best possible result.</p>
+        <p><b> Example 9.1: Select a Property According to Highest Net Income</b></p>
+        <hr>
+        <p>  Company XYZ analyzes 3 alternatives for buying a building for a branch office,
+ based on the Net Income Criterion which depends on the different forms of
+ payment used. For each property, A1, A2. or A3, there are three payment
+ alternatives (cash, 4 or 12 installments), and the Net Incomes, in thousand of
+ dollars, are:</p>
+        <img src="img3.png">
+        <p> This decision involves no risk or uncertainty, since the three alternatives are
+ known and mutually exclusive and the choice of payment depends entirely on
+ the decision maker’s wish. Alternative A3 has all decision values lower or equal
+ to those of A2 and, thus, it is dominated by A2 and can be discarded from the
+ decision process. So, there are only two alternatives left, A1 and A2.
+<br> The decision can be made using the Min/Max or Max/Min principles (Hillier &
+ Lieberman, 1980; Cook & Russel, 1993). The Min/Max principle is known as  the optimisticdecision; since it minimizes the highest income, while the Max/
+ Min principle is know as thepessimisticdecision, since it maximizes the lowest
+ income.</p>
+        <ol type="a">
+            <li><b>Decision using the Max/Min principle.</b> Using the Max/Min principle,
+ one should  “choose the strategy  offering the highest value among the
+ lowest values of each strategy”,  that is, Max/Min = Maximum (Mini
+mum value of A1 and A2) = Max (460, 450) =460. This value refers to
+ alternative A1.</li>
+            <li><b>Decision using the Min/Max principle.</b> According to this criteria, one
+ should “choose the strategy offering the lowest value among the
+ highest values of each strategy”, that is, Min/Max = Min (470, 500) =
+ 470. This value also refers to alternative A1. Thus, we have Min/Max =
+ Max/Min, in this example.</li>
+         </ol>
+        <h1><b>Decision with No Risk and More Than One Criterion or
+ Goal</b></h1>
+    <hr>
+        <p> When a decision problem has several criteria or goals expressed in different
+ units, (for instance, expected income, distance, etc.) it is necessary to transform
+ each one of these values into the same unit of measurement. In a given
+ decision, the value of income cannot be mixed with other objective, such as
+ competitive edge, (expressed by the property’s location), comfort (the number
+ of rooms, visibility, etc.), or area (in square meters).
+ <br>All these values should be transformed into the same unit called satisfaction
+ level or utility, whose values vary from 0 (to the worst level of satisfaction) to
+ 1 (to the best level of satisfaction) (Luce & Raiffa, 1957; Goodwin & Wright,
+ 1996).
+<br> Another difficulty refers to the conflicting nature of these goals,  as in the case
+ of minimization of cost and maximization of employee labor conditions,
+ because the best solution to minimize cost usually may not maximize labor
+ conditions. The three goals (net income, competitive edge and available area)
+ of Example 9.2 are to be maximized, but the best solutions for each goal
+ correspond to different alternatives.</p>
+        <p>There is no solution fully satisfying all goals considered. A consensual solution
+ based on the Pareto’s principle is usually adopted.</p>
+        <p>&nbsp;&nbsp;&nbsp;&nbsp; The Pareto’s Principle (Goicoechea et al., 1982; Hillier &
+ Lieberman, 1980)</p>
+        <p>&nbsp;&nbsp;&nbsp;&nbsp; If a solution x* of a problem with k goals fk
+ (x) is such that it is not
+ possible to find any solution x with fk
+ (x) better than fk
+ (x*) for all
+ k goals, then x* is an optimum Pareto solution</p>
+        <p>Example 9.2: Select a Property Considering Net Income and Two
+ Kinds of Benefits (adapted from Goodwin & Wright, 1996)</p>
+        <hr>
+        <p> Company XYZ studies three alternatives for buying a property for a new
+ branch office, according to three different goals:net income, based on cash
+ payment, competitive edge, given by the distance of the property from the
+ commercial center, andtotal available area. We have the following values:</p>
+      <img src="img4.png">
+        <h1><b>Establishing Utility Values</b></h1>
+        <hr>
+        <p> The worst and the best values of each goal should correspond to values 0 and
+ 1 of the utility function, respectively. Utilities for the intermediate values are
+ determined using different utility curves and will be explained in the next
+ chapter.</p>
+        <img src="img5.png">
+        <p> Weighting the Criteria or Goals</p>
+        <hr>
+        <p> In general, the three criteria should not be given equal weights, and the company
+ should choose the criterion with the greatest importance. If, for the company,
+ Net Income is the most important criterion or objective, then it gets arelative
+ weight equal to 1.
+<br> Each of the other criteria should get a relative weight according to the answer
+ given to the following question:</p>
+        <p>&nbsp;&nbsp;&nbsp;&nbsp; What is the importance of this criterion, in percentage terms, in
+ relation to the Net Income?</p>
+        <p> If the answer is “lower than 20%,” possibly this criterion could be discarded,
+ simplifying the solution of the problem.
+<br> The following table shows the relative and the normalized values of weights, the
+ utility values for the three properties, and the weighted average:</p>
+        <img src="img6.png">  
+        <h1>Sensitivity Analysis</h1>
+        <hr>
+        <p> The value of weights may alter the decision result. If we attribute a zero weight
+ to Net Income and the same relative weights of 0.50 and 0.80 are kept for the
+            two other criteria, the property chosen will be the property A3.</p>
+<p> In order to analyze the variation of the three weights it is possible to use a two
+dimensional chart, placing the variation of the sum of two of the three weights
+ (for instance, p = W2 + W3) on the horizontal axis, and the variation of the utility </p>
+        <h1><b> Subjective Perception of Risk</b></h1>
+        <hr>
+        <p> (Excerpted from: Subjective Perception of Risk, Mark Fenton-O’Creevy
+ and Emma Soane, Financial Times, Mastering Risk, Part I, May 2, 2000, pp.
+ 14-15).
+<br> Risk perception is a complex and subjective process. In finances, risk is usually
+ considered as a combination of the values of expected loss or gain and the
+ variability of this expected result. Human perception of risk acts in a different
+ way. There are two important risk components affecting our perception: the
+ fear factor — referring to fear of potential result — and thecontrol factor —
+ referring to the level of control over events. For instance, risk perception is very
+ high in a nuclear accident due to the fear factor or, it is higher for a car passenger
+ than the driver, due to control perception. In the financial market, both factors
+ are important –fear and anticipation of losses often control our actions. One
+ financial broker stated that “we often make decisions based more on the fear
+ of losing, than the hope of winning.”
+ <br>The largest risk perception component is in how we perceive gain and loss.
+ Persons in a winning position of a game increasingly have an aversion to risk,
+ since they want to keep their gains, while individuals in a losing position are
+ more willing to take risks, because they have less to lose.
+ <br>However, what we perceive as gain or loss depends on the personal standpoint,
+ which changes according to the situation and over time.</p>
+        <h1><b>Decision Problem Under Uncertainty or Risk</b></h1>
+        <hr>
+        <p> Economic and financial theories often make sure that a person makes optimum
+ use of available intuition as a basis for a rational decision, but research and
+ verification of daily behavior shows that human behavior is significantly different
+ from this statement.
+<br>  In many decision problems, the states of nature occur with a certain level of
+ uncertainty known as risk. It is then no longer possible to apply the Min/Max  or Max/Min principle since the risk occurrence with different probabilities does
+ not allow the choice of a greater or smaller gain value. One needs to obtain the
+ average or expected values.</p>
+        <p> In order to establish the probability values representing the uncertainty level or
+ risk, the decision maker must receive information by (Charan, 2001; Edwards,
+ 1975; Li & Ye, 1999):</p>
+        <p> In this chapter, the application of sensitivity analysis and the use of different
+ types of utility function are explained with more detail, using the Example 8.1
+ shown in Chapter VIII as an example of the descriptive model of decision.</p>
+        <p> Example 9.3: Decision with Uncertainty (presented as Example 8.1 
+Descriptive model of decision, in Chapter VIII)</p>
+        <hr>
+        <p> The following table shows the average return (profits or losses for a certain
+ investment value) associated to the following strategies:</p>
+        <ol>
+            <li> Investing in savings accounts with fixed earnings of $300 per period</li>
+            <li>Investing in fixed earnings funds</li>
+            <li>Investing in the stock market</li>
+             </ol>
+            <p> The average return varies according to the economic situation considering the
+ possible economy states (recession, stability, or expansion).</p>
+            <img src="img7.png">
+            <img src="img8.png">
+        <p><i> Sensitivity Analysis</i></p>
+        <hr>
+        <p> It is helpful to check the variation of expected values for different probability
+ values p1, p2, and p3, thus getting a chart that allows the analysis of strategic
+ limits of investments risks.
+ <br>In order to assess value variations for p1, p2, and p3, the chart suggested by
+ Clemen and Reilly (2001) is adopted and shown in Figure 9.2. Since there are
+ three variables p1, p2, and p3, the values for p1 are placed on the horizontal
+ axis and p2 on the vertical axis. Values of p3 are implicitly expressed by the
+ property p1 + p2 +p3 =1. For instance, if p1 = 0 and p2 = 0, then p3 = 1; if
+ p1 = 0.2 and p2 = 0.2, then p3 =0.6, and so on.
+<br> In case of more than three risk possibilities, the sensitivity assessment using a
+ chart becomes impossible. In Sensitivity Analysis chart of Figure 9.2, each
+ point (p1, p2) contains the name of the best Aj alternative for a given risk value
+ (p1, p2, p3). For instance, in the numerical example seen, we have p1 = 0.4,
+ p2 = 0.4 and p3 = 0.2 with the expected EMV1
+ values = 300, EMV2
+ = 320
+ and EMV3
+ = 180. Thus, point (0.4, 0.4) will have A2 as the best alternative.
+<br> Once the best expected value is obtained for all different probability values,
+ expressed by the points (p1, p2) in the chart, the strategic regions where each
+ Aj investment alternative is the best solution are easily known.</p>
+        <h1><b>The Role of Utility Function</b></h1>
+        <hr>
+        <p> A “decision based only on expected monetary values” may not be perfect
+ since it does not analyze every earning possibility, such as highest profit or
+ worst loss. Besides, expected value based on numeric values such as money,
+ dimension, or age does not allow the inclusion of nonquantitative criteria such
+ as “client satisfaction”, “product quality”, etc. The decision based on the “level
+ of satisfaction or utility function,” associated to each quantitative or non
+ quantitative (or qualitative) value, best expresses the decision alternatives.
+<br> In the Example 9.3, a decision should consider other factors involving the
+ decision maker’s interests. Using the expected monetary values EMV, a player
+ or decision maker should never get the highest earning of $700 given in
+ alternative A3, even at the risk of losing (-$100). Utility function transforms
+ quantitative and qualitative values in corresponding utility values, allowing
+ better analysis of complex decision problems.</p>
+        <p><i> Risk Neutral Decision-Making</i></p>
+        <hr>
+        <p> If the decision maker is risk neutral, he or she would use the risk neutral curve
+ of Figure 9.3 and would probably not choose alternative A3, where $700 is the
+ highest earning value and $100 represents a loss.
+ <br>A risk neutral decision maker is usually a midsized or large organization with
+ long experience in its activity. Thus, data placed on the decision matrix were
+ analyzed by a consultant team, and there would be no reason to doubt the linear
+ behavior of these values.</p>
+        <p><i> Risk Averter Decision-Making</i></p>
+        <hr>
+        <img src="im9.png">
+        <p> The average values using these utility values are:</p>
+        <p> 
+            
+     <p>&nbsp;&nbsp;&nbsp;&nbsp;EMV1
+ = 0.4 x 0.75 + 0.4 x 0.75 + 0.2 x 0.75 = 0.75;
+ <br>&nbsp;&nbsp;&nbsp;&nbsp;EMV2
+ = 0.4 x 0.85 + 0.4 x 0.75 + 0.2 x 0.62 = 0,764; and
+ <br>&nbsp;&nbsp;&nbsp;&nbsp;EMV3
+ = 0.4 x 0   + 0.4 x 0.62 + 0.2 x 1 = 0.448.</p>
+        <p> Risk averter decision makers wishing to maximize their personal satisfaction
+ with the utility function would choose alternative A2. A risk averter person or
+ organization is one with small amount of resources or with little experience in
+ this kind of decision. A risk averter cannot count on counseling or assistance
+ from other people or organizations to explain the pros and cons of the
+ alternatives presented. However, there are different risk aversion levels,
+ depending on whether there is greater or lesser knowledge of the problem. For
+ instance, when buying real state, both the homemaker who wishes to buy a
+ house and the real estate broker may be risk averters. The homemaker’s risk
+ aversion level is usually higher than the broker’s.</p>
+        <p><i>Risk Taker Decision-Making</i></p>
+        <hr>
+        <p> By using the curve expressing“risk taker or risk preference” in Figure 9.2,
+ the decision maker may get, for instance, the following expected earnings:
+ EMV1
+ = 0.18, EMV2
+ = 0.217 and EMV3
+ = 0.25 and thus could choose
+ alternative A3, where there is highest risk, but with earning possibilities of
+ $700. A person or organization prefers to take risks when believes that the
+ reward is worth the risk or when the time frame limit enforces a risky alternative.</p>
+        <h1><b> Decision Model with Learning, Using Additional
+ Information</b></h1>
+        <hr>
+        <p> Learning process in descriptive models of decision can be made using the
+ adaptive or feedback model of statistics. The best known learning process is
+ made using Bayes’ Theorem, in which prior values of probabilities can be
+ updated by additional information collected through a new sampling process
+ (Shamblin & Stevens, 1980; Hillier & Liebermann, 1980; Takahashi, 1997).
+ This process can be repeated many times, renewing the values of probabilities
+ at each step of decision. The following Example 9.4 illustrates this process.</p>
+        <p><i> Example 9.4. Renewing Probabilities in an Opinion Survey</i></p>
+        <hr>
+        <p> Senator Bill Hernandez (BH) is a candidate for the next presidential election.
+ His supporting committee hired an opinion research company to conduct, in
+ each month prior to the election day, a nationwide opinion survey about the
+ preference of the electoral population, whether preferring Senator BH or the
+ other adversary. The results of the last research, expressed in probability terms
+ were: P (S1)= P(BH wins)= 0.3, P (S2)= P (there is a tie)= 0.3, and P (S3)=
+ P (Adversary wins)= 0.4.
+ <br>After each round of the research, one of the following decisions must be taken
+ by the supporting committee:</p>
+        <img src="10.png">
+        <p> the previous survey. The result of this small scale survey, called additional
+ information F, predicted that F = {BH wins in the major capital cities}.
+ Based on this addition information F, the opinion research company will predict
+ whether or not candidate BH wins. The difficulty is that the result of this small
+ scale survey, made only in major capital cities, does not always coincide with
+ the final result of the election.
+ <br>In the past, the supporting committee observed that 60% of the time, this
+ additional research predicted that “BH wins in major capitol cities”, then the
+ election was actually won by BH. This fact can be expressed as the conditional
+ probability P (F / S1)= 0,6.
+ <br>On the other hand, 40% of time the additional research predicted that “BH wins
+ in major capitol cities”, the election ended in a tie between the two candidates,
+ while only 20% of time, the election was actually won by the other candidate.
+ Then, for the additional information F we have the other two conditional
+ probabilities: P (F / S2) = 0.4 and P (F / S3)= 0.2. Using probability formula
+ we have:</p>
+        <img src="img11.png">
+        <p> After this additional information F, average values of win or loss of voters for
+ each decision are:</p>
+        <p>&nbsp;&nbsp;&nbsp;&nbsp; EA1 = 0.474 · 100,000 + 0.316 · 150,000 + 0.210 · 50,000 = 105,200,
+        <br>&nbsp;&nbsp;&nbsp;&nbsp; EA2 = 0.474 · 100,000 + 0.316 · 200,000 + 0.210 · 150,000 = 165,800,
+ and
+        <br>&nbsp;&nbsp;&nbsp;&nbsp; EA3 = 0.474· 50,000 + 0.316· (-50,000) + 0.210· (-200,000) = -34,100.</p>
+        <p> Best decision is again A2, and the additional information F = {BH wins in major
+ capital cities} reinforces this strategy.
+ <br>Each month, after the results of the nationwide opinion survey, this updating
+ process can be repeated.</p>
+        <center><h1><b>Additional Problems That Must Be<br>
+ Considered in Structuring a
+<br> Strategic-Decision-Model</b></h1></center>
+        <hr>
+        <p> It is important to remind us that in a strategic-decision-making procedure many
+ other factors become more and more difficult and complex in a systematic way
+ to structure the decision process. The systematic structuring methodology
+ presented in the previous sections are valid for decision problems of tactical or
+ operational levels and must be considered as a starting procedure for strategic
+decision problems.
+<br> Many types of difficulties must be considered when a strategic-decision
+ problem is to be structured. These difficulties are reported by researchers in the
+ form ofparadoxes orhidden traps that reflect the different aspects of human
+ behavior under uncertainty, risk or complexity to determine a consistent list of
+ decision alternatives.
+<br> Most of the difficulties are related to the problem of how an individual or
+ group’s risk attitude can change depending on the way the decision problem is
+ posed. A person may have different attitudes (risk neutral, risk preference or
+ aversion to risk) to lose a certain amount of money during the initial and final
+ phase of a gamble or, when  the total amount of money available to play the
+ game or invest in the stock market is small or large.</p>
+        <p> A person’s or group’s attitude can change depending on many factors such as
+ time, financial situation, or responsibilities according to the problem to be
+ solved. This fact is known asframing problem because different persons can
+ see different frames (of values or structures), simplifying the reality.
+ <br>The effects of hidden traps mentioned in a Case Study, as well as Allais or
+ Ellsberg’s paradox can be minimized forming different decision alternatives
+ given by different groups of persons. These alternatives are discussed and a
+ final decision can be reached by negotiation or by the use of votes. St.
+ Petersburg’s paradoxis concerned with the possibility of unknown value of
+ probability expectation but the use of utility value can help to solve the problem.</p>
+        <h1><b> The Paradoxes</b></h1>
+        <hr>
+        <p> St. Petersburg’s paradox (Takahashi, 1997; Clemen & Reilly, 2001; Goodwin
+ & Wright, 1996)</p>
+        <p> Let us consider the following two types of coin tossing game which must be held
+ until the first occurrence of  “head.”</p>
+        <p><b> Game I:</b></p>
+        <p>&nbsp;&nbsp;&nbsp;&nbsp; If the first head occurs in the first trial, the player receives $2; if it occurs
+ in the second trial, he or she receives $4, and son on, until the occurrence
+ of head in the k-th trial, when he or she receives $2k</p>
+        <p><b> Game II:</b></p>
+        <p>&nbsp;&nbsp;&nbsp;&nbsp; Whichever trial occurs head for the first time, the player receives a fixed
+ amount of money $W. Which one of the games must a player select?</p>
+        <p> Game II gives always the Expected Value E2 = $ W.</p>
+        <p> Expected Value of Game I is E1 =¥, according to probability theory. Thus, the
+ profit in Game I is, at least theoretically, greater than any value of profit in Game
+ II. But in Game I, we assume that the profit is greater than any amount $W if
+ the coin is tossed an infinite number of times. What is the meaning of “infinite
+ number of times”? The answer is the number K of trials of a coin until the first
+ occurrence of a head has a geometric distribution with expected value E(K) = 1/p, or E(K) = 2, for the case of the coin, where p=1/2. Thus Game II will be
+ preferred when the expected monetary value $ W is greater than $2, which is
+ a value far from infinite.<br> This paradox can be solved using the utility function, that shows that game II
+ must be preferred when the monetary value $W  is more than $4, which satisfies
+ the decision based on the expected value of the geometric distribution.</p>
+        <img src="img12.png">
+        <p><i> Questions</i></p>
+        <hr>
+        <p> Which of the two options (A or B) would you choose in Game I?
+<br> Which of the two options (C or D) would you choose in Game II?</p>
+        <p> Game 1:</p>
+        <p>&nbsp;&nbsp;&nbsp;&nbsp; Usually, due to the fixed profit of Option A, persons consider that the
+ utility value of A is greater than the utility value of B, or U(A)>= U(B),  or
+ U(200)>= 0.10 x U(1000)+ 0.89xU(200)+ 0.01x U(0) and then
+ 0.11 x U(200)>= 0.10 x U(1000) + 0.01 x U(0).:</p>
+        <p>Game 2:</p>
+        <p>&nbsp;&nbsp;&nbsp;&nbsp; The probability of profit $200 of option C is similar to the probability of
+ profit $1000 of option D. It seems reasonable that persons prefer a
+            greater profit ($1000 versus $200). Using utility we have:</p>
+       <p> &nbsp;&nbsp;&nbsp;&nbsp; U(C)<= U (D)or
+        0.11 x U(200)+ 0.89 x U(0)<= 0.10 x U(1000)+ 0.90 x U(0)and then
+           0.11 x U(200)  <= 0.10 x U(1000)+ 0.01 x U(0).</p>
+           <p> Thus, this paradox presents two contradictory inequalities, which may be
+ explained by the fact that utility theory does not attempt to describe the way in
+ which people choose a utility value.</p>
+                     <p> &nbsp;&nbsp;&nbsp;&nbsp;A final paradox (Ellsberg’s Paradox) solves Allais’s paradox considering
+ different attitudes of persons’ preference with respect to uncertainty and
+ risk: neutral to risk, aversion to risk, and preference to risk, relaxing the
+ fundamental law of probability theory, where the sum of the probabilities
+ of all the events must be equal to 1.</p>
+        <center><h1><b>Conclusions</b></h1></center>
+        <hr>
+        <p> In this chapter, steps to structure a decision model through a systematic way,
+ based on the PDCA (Plan, Do, Check, and Action) principle, were presented.
+ <br>The decision matrix and decision tree are tools used to organize a starting model
+ of a strategic-decision problem. A decision matrix is used to represent a one
+stage decision problem while a decision tree is used to represent a sequence of
+ decision-making stages.
+<br> Examples of problems to select the best alternative under no risk, uncertainty,
+ or risk situation were presented. For all cases, decision problems with single  or multiple criteria or goals, using utility values, were presented. A decision
+ model updated using feedback from additional information was also presented.
+ <br>Difficulties to be considered in the structuring process of decision models are
+ illustrated in the form ofparadoxes orhidden traps that reflect the different
+ aspects of human behavior under uncertainty, risk, or complexity, to determine
+ a consistent list of decision alternatives.
+<br> In the following chapters, we will extend the structuring process described in
+ this chapter, to more general and different kinds of strategic-decision-making
+ problems.</p>
+        <center><h1><b>Case Studies: Strategy and
+ <br>Decisions in Perspective</b></h1></center>
+        <hr>
+        <h1><b>Case – The Hidden Traps in Decision-Making</b></h1>
+        <hr>
+        <p>(Excerpted from “The Hidden Traps in Decision Making “, by J .S. Hammond,
+ R. L. Keeney and H. Raiffa, Harvard Business Review, September- October,
+ 1998, pp. 47 to 54)</p>
+        <p> &nbsp;&nbsp;&nbsp;&nbsp;“In making decisions, your own mind may be your worst enemy.”</p>
+        <p>What are the causes of a bad decision? Due to the complexity in structuring and
+ formulating a decision-making problem and the high level of subjective judg
+ment, bad decisions occur frequently. The “hidden traps” which accompany the
+ decision-making process can cause errors in the formulation and structuring of
+ a decision problem, as well as in choosing the correct alternative.</p>
+        <p> The main traps are:</p>
+        <ol>
+            <li><b>“the anchoring trap”</b>– one of the most common types of an anchor (a
+ weight that hangs from the ship in the same place) is a fixation on the
+ “historical past” or “worldwide trend” or on “tradition”;</li>
+            <li> <b>“the status-quo trap”–</b>  the innovative alternatives tend to be similar to
+ those that have been abandoned, or are just the same idea presented in a
+ different way, i.e. there is an accommodation to remain in the same status;</li>
+            <li><b> “the sunk-cost trap”</b>  – many decisions try to take losses (or gains) from
+ the past into account, even though they are irrecoverable;</li>
+            <li> <b>“the confirming-evidence trap”–</b> many decisions are based on evi
+dences assumed in a polemical manner, such as “investing in television
+ advertising is essential”,  “we must invest in R&D”, etc.;</li>
+            <li> <b >“the framing trap”–</b> the same problem can be represented by a decision
+ tree or table in a different way, depending on the point of view adopted;</li>
+            <li> <b>“the estimating and forecasting trap”–</b> the effects of subjective or
+ superficial judgments should be minimized in the estimation of values or
+ demand forecasting;</li>
+            <li> <b>“the overconfidence and prudence trap”–</b> excessive confidence or
+ caution is not recommended in obtaining information or making decisions.</li>
+             </ol>
+            <p> One way to minimize the occurrence of “bad decisions” is to use the process
+ of Sensibility Analysis, submitting a decision to controlled variations of the
+ values involved. This analysis can be done if there is an opportunity to ask
+ questions such as “WHAT IF?” at any given moment.</p>
+                <h1><b> Questions for Reflection and Discussion</b></h1>
+            <hr>
+            <ol>
+                <li> Consider the case in the section titled The Hidden Traps in Decision
+Making and comments on the “hidden traps” existing in the decision
+problem examples in this and in the previous chapter.</li>
+                <li> Explain the role of a sensitivity analysis in a decision-making process.</li>
+                <li>What are the elements of a decision matrix?</li>
+                <li>What are the steps for systematically structuring the decision-making
+ process?</li>
+                <li> What is a decision tree and what is it used for?</li>
+                </ol>
+                <center><h1><b>Exercises</b></h1></center>
+                <hr>
+        <ol>
+            <li>Project:</li>
+        </ol>
+        <p> Make up several groups with five people at most in each. Use the Sunday
+ classified ads from some national newspapers and construct the decision
+ model (the decision matrix and the decision tree) for the following
+ problems:</p>
+        <ol type="a">
+            <li>Select a residential property;</li>
+            <li>Select a piece of land to install a branch office of your company;</li>
+            <li>Choose a job;</li>
+            <li>select a candidate for the position of manager;</li>
+            <li>Choose a new automobile;</li>
+            <li>Select a used car.</li>
+        </ol>
+        <p> Each problem should have at least five decision alternatives, i.e., choose
+ five residential properties, five pieces of land, five cars, etc. The param
+eters and objectives or criteria for the decision should be defined by each
+ group. Compare the decision matrixes constructed by different groups
+ and discuss the causes for existing differences.</p>
+        <img src="img13.png">
+        <center><h1><b> References</b></h1></center>
+        <hr>
+        <p> Bass, B. M. (1983).Organization decision making. Homewood, IL: Richard
+<br>&nbsp;&nbsp;&nbsp;&nbsp; D. Irwin.
+ Charan, R. (2001). Conquering a culture of indecision. Harvard Business
+<br>&nbsp;&nbsp;&nbsp;&nbsp; Review, 79(4), 75-82.
+ Clemen, R. T., & Reilly, T. (2001). Making hard decisions with decisions
+ <br>&nbsp;&nbsp;&nbsp;&nbsp;tools. New York: Duxbury Press.
+ Cook, T.M., & Russel, R.A.(1993). Introduction to management science.
+<br>&nbsp;&nbsp;&nbsp;&nbsp; NJ: Prentice-Hall.
+ Dyson, R.G. (Ed.). (1990). Strategic planning: models and analytical
+ <br>&nbsp;&nbsp;&nbsp;&nbsp;techniques. New York: Wiley.
+ Edwards, W. (1975). Cognitive process and the assessment of subjective
+ <br>&nbsp;&nbsp;&nbsp;&nbsp;probability distributions. Journal of the American Statistical Associa
+<br>&nbsp;&nbsp;&nbsp;&nbsp;tion, 70(350), 291-293.
+ Goicoechea, A., et al. (1982). Multi-objective decision analysis with
+<br>&nbsp;&nbsp;&nbsp;&nbsp; engineering and business applications. New York: John Wiley & Sons.
+ Goodwin, P., & Wright, G. (1996). Decision analysis for management
+ <br>&nbsp;&nbsp;&nbsp;&nbsp;judgment. New York: John Wiley & Sons.
+ Gregory, G. (1980).Decision analysis. New York: Pitman Books.
+ Hammond, J. S., Keeney, R. L., & Raiffa, H. (1998). The hidden traps in
+ <br>&nbsp;&nbsp;&nbsp;&nbsp;decision making. Harvard Business Review, 76(5), 47-58.
+ Hillier, F., & Libermann, G. J. (1980). Introduction to operations research
+ <br>&nbsp;&nbsp;&nbsp;&nbsp;(3rd ed.). New York: Holden Day.
+ Keeney, R., & Raiffa, H. (1976). Decisions with multiple objectives:
+<br>&nbsp;&nbsp;&nbsp;&nbsp; preferences and value tradeoff. New York: Wiley & Sons.
+ Kinoshita, E. (1996). Introduction to management science (in Japanese).
+<br>&nbsp;&nbsp;&nbsp;&nbsp; Tokyo: Sakurai Publishers.
+ Li, M., & Ye, L.R. (1999). Information technology and firm performance:
+<br>&nbsp;&nbsp;&nbsp;&nbsp; Linking with environmental, strategic and managerial contexts.Informa
+tion & Management, 35(1), 43-51.
+ Luce, R. D., & Raiffa, H. (1957). Games and decisions. New York: John
+<br>&nbsp;&nbsp;&nbsp;&nbsp;Wiley & Sons.
+ Monks, J. G. (1985). Operations management. Schaun’s Outline Series,
+<br>&nbsp;&nbsp;&nbsp;&nbsp; New York: McGraw-Hill. Naylor, T., et al. (1971). Computer simulation experiments with models of
+<br>&nbsp;&nbsp;&nbsp;&nbsp; economic systems. New York: John Wiley & Sons.
+ Phillips, M. E., & Brown, C. E. (1991). Need an expert? Ask a computer.
+<br>&nbsp;&nbsp;&nbsp;&nbsp; Journal of Accountancy, 5, 91-93.
+ Raiffa, H. (2002). Negotiation analysis — The science and art of collabo
+<br>&nbsp;&nbsp;&nbsp;&nbsp;rative decision making. Cambridge, MA: Harvard University Press.
+ Shamblin, J., & Stevens, G.T. (1980). Operations research: An algorithmic
+ <br>&nbsp;&nbsp;&nbsp;&nbsp;approach. New York: McGraw-Hill.
+ Takahashi, N. (1997). Decision analysis inside the organization (in Japa
+<br>&nbsp;&nbsp;&nbsp;&nbsp;ese). Tokyo: Assakura Publishers.
+ Takefuji, Y. (1996). Neural computing (in Japanese). Tokyo: Corona Pub
+<br>&nbsp;&nbsp;&nbsp;&nbsp;lishers.
+ Turban, E., & Aronson, J.E. (1998). Decision support systems and intelli
+<br>&nbsp;&nbsp;&nbsp;&nbsp;gent systems(5th ed.). New York: Prentice-Hall.</p>
+                
+                
+                
+            
+            
+            
+            
+        
+        
+        
+        
+        
+       
+        
+            
+            
+        
+        
+        
+       
+        
+        
+        
+            
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+            
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+     </body>
+</html>
+        
+        
