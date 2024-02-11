@@ -1,0 +1,937 @@
+<html>
+      <head>
+        <style>
+            body{
+              width:100vh;
+            margin-left: 400px;
+                
+         }
+            @media print{
+                body{
+                    margin-left: 0px;
+                    
+                }
+            }
+            th{
+                text-decoration: underline;padding-right: 25px
+            }
+            td{
+                padding-right: 25px
+            }
+          ol.theoClass{
+                 list-style: none;
+            }
+            .theoClass li:before {
+  
+  content: "(" attr(seq) ")" ;
+                  margin-right:5px;
+}
+        
+        </style>
+          
+            </head>
+    <body>
+        <center>
+            <h1 style="font-size: 40px"><b> Maximum Performance:<br> Efficiency Approaches for<br>Estimating Best Practice <br> Costs </b></h1></center>
+            <center> Marvin D. Troutt
+<br> Kent State University, USA</center>
+            <center> Donald W. Gribbin
+<br> Southern Illinois University at Carbondale, USA</center>
+            <center> Murali S. Shanker
+<br> Kent State University, USA</center>
+            <center> Aimao Zhang
+ <br>Georgia Southern University, USA</center>
+            <center><h1> ABSTRACT</h1></center>
+            <p> Data mining is increasingly being used to gain competitive advantage.  In this chapter,
+ we propose a principle of maximum performance efficiency (MPE) as a contribution to
+ the data-mining toolkit. This principle seeks to estimate optimal or boundary behavior,
+ in contrast to techniques like regression analysis that predict average behavior. This
+ MPE principle is explained in the context of activity-based costing situation.
+ Specifically, we consider the activity-based costing situation in which multiple
+ activities generate a common cost pool.  Individual cost drivers are assigned to the
+ respective activities, but allocation of the cost pool to the individual activities is
+ regarded as impractical or expensive. Our study focuses on published data from a set  of property tax collection offices, called Rates Departments, for the London metropolitan
+ area.  We define what may be called benchmark or most efficient average costs per unit
+ of driver.  The MPE principle is then used to estimate the best practice cost rates. A
+ validation approach for this estimation method is developed in terms of what we call
+ normal-like-or-better performance effectiveness.  Extensions to time-series data on a
+ single unit, and marginal cost-oriented basic cost models are also briefly described.
+ In conclusion, we discuss potential data-mining applications and considerations.</p>
+            <center><h1> INTRODUCTION</h1></center>
+            <p>  &nbsp;&nbsp;&nbsp;&nbsp;In recent years, companies have started to realize the potential of using data-mining
+ techniques as a form of competitive advantage. For example, in the finance industry, in
+ the decade from 1980 to 1990, the number of credit cards issued doubled to about 260
+ million. But, in the next ten years, there was not another doubling of this number. Given
+ that there are now about 280 million people in the United States, it is widely believed that
+ the credit card market is saturated (Berson, Smith, & Thearling, 2000). In such situations,
+ any gains by one company leads to a loss for another — a zero-sum game. To gain
+ competitive advantage, credit card companies are now resorting to data-mining tech niques to retain and identify good customers at minimal cost.</p>
+<p> &nbsp;&nbsp;&nbsp;&nbsp; The cell phone industry is also expected to go the way of the credit card market.
+ Soon, the cellular industry will be saturated; everybody who needs cells phone will have
+ one.  Companies who are able to predict and understand customer needs better, will
+ probably be the ones who will survive. The cellular industry, like the credit card industry,
+ is likewise resorting to data-mining techniques to identify traits for retaining good customers.</p>
+<p> &nbsp;&nbsp;&nbsp;&nbsp; Research in data mining has so far focused on either developing new techniques
+ or on identifying applications. Being a multidisciplinary field, data-mining techniques
+ have originated from areas of artificial intelligence, database theory, visualization,
+ mathematics, operations research, and statistics, among others. Many of the well-known
+ statistical techniques like nearest neighbor, clustering, and regression analysis are now
+    part of the data-mining toolkit.</p>
+<p> &nbsp;&nbsp;&nbsp;&nbsp; In this chapter, we present a new technique based on the principal of maximum
+ performance efficiency (MPE). While techniques like linear regression analysis are used
+ to predict average behavior, MPE seeks to predict boundary or optimal behavior. In many
+ cases, such models are actually more desirable. For example, in a saturated credit card
+ or cellular phone market, a company may seek to predict characteristics of its best
+ customers. In essence, choosing to concentrate on customers who are low risk/cost to
+ maximize profit. Such models, usually called ceiling/floor models, can also be used as part
+ of data-mining techniques for benchmarking. For example, a company may be interested
+ in comparing the quality of its products over different product lines. The MPE criterion
+ seeks to identify the characteristics of the best performing unit, thus allowing the
+ company to implement these measures in other units to improve their quality, and hence
+    the competitive advantage of the company across product lines.</p>
+<p> &nbsp;&nbsp;&nbsp;&nbsp; We propose the MPE principle and show how it can be used to estimate the best
+ practice costs in an activity-based costing situation. The rest of the chapter is organized  as follows. In the next section, we present our initial motivation for developing the MPE
+ principle. As an example, we consider an activity-based costing situation where multiple
+ activities generate a common cost pool. Our objective is to estimate the best practice cost
+ rates. The following section then distinguishes between basic cost models and the
+ models used to estimate the parameters of the basic cost models. The maximum perfor
+mance efficiency (MPE) principle is developed using an aggregate efficiency measure
+ that is the sum or average of performance efficiencies. Then the MPE principle is used
+ to derive the linear programming estimation model.  The next section describes the data
+ for the study. The MPE criterion is applied to this data, and the results are compared with
+ a previous analysis to assess face validity for the proposed new method. The following
+ section proposes a model aptness theory based on the gamma distribution and a
+ technique called vertical density representation. The fitted performance efficiency
+ scores are required to satisfy a benchmark for validity of the goal assumption called
+ normal-like-or-better performance effectiveness. This is followed by limitations and
+ some extensions to other basic cost models. The next section discusses potential data
+mining applications and considerations, and is followed by the Conclusions section.</p>
+            <p> Remarks on notation:  In summation notations using ∑, the lower limit is omitted when it is
+ clear from the context.  Omission of upper limits indicates summation over all values of the
+ index.</p>
+            <center><h1>MOTIVATION</h1></center>
+            <p> &nbsp;&nbsp;&nbsp;&nbsp;  Managerial accountants are often called upon to provide measures of performance
+ efficiency.  Such a task is essentially trivial if there is a single input measure and a single
+ output measure.  One could simply divide the output measure by the input measure and
+ use the resulting performance efficiency measure to either: (1) compare the unit’s
+ performance over time, or (2) compare the unit’s performance with other comparable
+ units.</p>
+            <p>&nbsp;&nbsp;&nbsp;&nbsp; While there are numerous purposes for performance efficiency measures (i.e.,
+ performance evaluation, managerial compensation, benchmarking, and cost control, to
+ name a few), the specific purpose of this research is to explain and illustrate how a
+ proposed estimation principle can be used with activity-based costing for determining
+ performance efficiency measures for the purpose of cost control. Activity-based costing
+ is one approach that could be used to develop a performance measure for such purposes.
+ Activity-based costing consists of disaggregating costs into specific cost pools that can
+ be linked causally with their respective activities.  Cooper and Kaplan (1992) illustrate
+ how such an approach can be used with purchase order data.  The approach consists of
+ dividing the monthly cost of processing purchase orders by the number of purchase
+ orders processed per month. This purchase order cost can then be used as a benchmark
+ for comparison purposes.  This approach is very simple and easy to use if there is only
+ one cost pool and one activity with a single cost driver.  But there are many realistic
+ scenarios in which there are multiple cost drivers for a single cost pool.  For example,
+ faculty salaries for an academic unit (department or college) appear to be driven by at least
+ two cost drivers.  Both student credit hours generated and the level of academic degrees offered (bachelor’s, master’s, and doctorate) appears to drive the amount of faculty
+ salaries for an academic unit.  The dilemma is that faculty salaries are in a single cost pool,
+ and there is no simple and objective method for disaggregating faculty salaries.  The task
+ of attributing the faculty salary pool to separate activities and cost drivers is essentially
+ impossible.  There is no easy way for determining how much of the faculty salary pool
+ is due to: (1) the generation of student credit hours, and (2) the level of academic degrees
+ offered by academic unit.</p>
+            <p> &nbsp;&nbsp;&nbsp;&nbsp; The methodology explained and illustrated in this chapter allows for the inclusion
+ of multiple cost drivers in determining performance efficiency measures. The allocation
+ of the combined cost pool to individual activities might be regarded as not objectively
+ possible, impractical, expensive, or of insufficient additional value for the costing
+ system.  We first consider the problem of estimating average costs per unit of cost driver
+ in such situations when cross-sectional data are available for a set of what we call
+ comparable business units.  We also consider application of the same techniques to
+ basic cost models having marginal cost assessment capability, and briefly discuss the
+ setting in which a single business unit is observed over several time periods.</p>
+            <p>&nbsp;&nbsp;&nbsp;&nbsp;  We define benchmark or best practice average costs per unit of cost driver as the
+ average cost rates associated with the most efficient unit(s).  A principle of maximum
+ performance efficiency (MPE) is proposed and estimation criteria based on efficiency
+ measures are derived from this principle.  This is a generalization of the maximum
+ decisional efficiency  (MDE) principle introduced in Troutt (1995) and also discussed in
+ Troutt (1997) and Troutt, Zhang, Tadisina, and Rai (1997).  The efficiency measure used
+ may be considered analogous to the cost of unused capacity concept proposed by
+ Cooper and Kaplan (1992).  These models also provide a different view on the lack of
+ proportionality of costs to driver levels documented in Noreen and Soderstrom (1994).
+<br>&nbsp;&nbsp;&nbsp;&nbsp;  A basic assumption underlying the estimation principle employed here is that all
+ business units under comparison seek to maximize their efficiencies in performing their
+ services.  The data we study are from public service entities that are presumed to have
+ this goal on behalf of the public interest.  However, this assumption needs verification
+ as a kind of model aptness or validation issue similar to the requirement of normally
+ distributed errors in OLS regression. As an estimation model aptness test, we propose
+ what may be called a normal-like-or-better performance effectiveness measure. The
+ estimation models proposed here are linear programming (LP) models.  Use of such
+ models in cost accounting is not new.  See for example, Demski (1967), Itami and Kaplan
+ (1980), Kaplan and Thompson (1971), and Onsi (1970).  These previous works have
+ generally utilized LP models assuming that data are known.  That is, they assume that
+ technological coefficients and resource levels are given.  Then the dual optimal solution
+ (especially the shadow prices) of these fully specified LP models has been employed for
+ (1) overhead allocation (Kaplan & Thompson, 1971), (2) transfer pricing (Onsi, 1970), and
+ (3) reallocation of costs to multiple products (Itami & Kaplan, 1980).  However, the use
+ of LP models enters in a different way in this chapter.  Namely, the estimation models are
+ themselves LP problems in which the decision variables are the unknown best practice
+ cost rates. The next section distinguishes between basic cost models and the models
+ used to estimate the parameters of the basic cost models. The MPE principle is also
+ presented here.</p>
+            <center><h1><b> BASIC COST MODELS AND ESTIMATION<br>
+ MODELS</b></h1></center>
+            <p>&nbsp;&nbsp;&nbsp;&nbsp;  There are two uses of the word “model” in this chapter.  By the basic cost model, we
+ mean the assumed relationship between the cost driver of an activity and its contribution to
+ the total cost pool.  The simplest case is that of proportional variation.  Let yr be the amount
+ of the r-th cost driver.  Under the basic cost model, the contribution to the total cost pool will
+ be ar
+ yr
+ , where ar
+ may be called the average cost per unit of yr
+ or simply the cost rate.  This
+ chapter focuses on this basic cost model.  Some other models such as for estimating marginal
+ costs are discussed briefly.  The other use of the word “model” refers to the method used
+ to solve for estimates of the basic cost model parameters — the a*r
+ .   The estimation models
+ used here are LP models.  As noted above, this usage of LP does not appear to be similar to
+ previous uses in the accounting literature, but is a consequence of the estimation principle
+ used.</p>
+        <p>Suppose there are r=1…Rr activities with associated cost driver quantities of yr,
+ respectively.  Then, as in Cooper and Kaplan (1992), the cost of resources consumed is given
+ by ∑ aryr.If x is the actual total cost pool associated with these activities, the cost of resources
+ supplied, then there may be a difference, s ≥ 0, such that</p>
+        <p>&nbsp;&nbsp;&nbsp;&nbsp; ∑aryr+s=x.</p>
+        <p> Cooper and Kaplan (1992) call s the cost of unused capacity.  In their analysis, the x value was
+ a budget figure and the yr
+ could vary due to decreased demands.  We start from the same
+ construct but regard variations of the yr
+ and x as due to more or less efficiency.  By defining
+ what may be called best practice ar
+ values, we therefore associate the s value with possible
+ inefficiency of a business unit, a cost of inefficiency.</p>
+        <p>&nbsp;&nbsp;&nbsp;&nbsp; Thus suppose we have j = 1…N comparable business units, achieving yrj
+ units of
+ driver r, respectively, and with associated cost pools, xj
+ .  In addition to having the same
+ activities and cost drivers, we further require that comparable units be similar in the sense
+ that the practices, policies, technologies, employee competence levels, and managerial
+ actions of any one should be transferable, in principle, to any other.  Define ar
+ * as the vector
+ of cost rates associated with the most efficient unit or units under comparison.  Then in the
+ equation</p>
+        <p>&nbsp;&nbsp;&nbsp;&nbsp; R
+ ∑
+ r 1
+ =
+ a
+ r
+ *yrj
+  + sj
+ = xj    
+   for all j</p>
+        <p> the cost of unused capacity, sj
+ , may be interpreted as an inefficiency suffered by a failure to
+ achieve larger yrj
+  values, smaller xj 
+value, or some combination of these.  The ratio vj
+  = ∑  ar
+ *yrj
+ / xj  ,  is an efficiency measure for the j-th unit when the ar
+ * are the true benchmark cost rates
+ and ∑  ar
+ *yrj
+ ≤ x j
+   holds for all units. A technique for estimating parameters in efficiency ratios
+ of the above form was proposed in Troutt (1995).  In that paper, the primary data were specific
+ decisions.  Here a more general form of that approach called maximum performance efficiency
+ (MPE) is proposed and applied to estimate the benchmark ar
+ * values.  Assume that each unit
+ j = 1…N, seeks to achieve maximum (1.0) efficiency.  Then the whole set of units may be  regarded as attempting to maximize the sum of these efficiency ratios, namely, ∑∑ar
+ *yrj
+ / xj
+ .
+ The maximum performance efficiency estimation principle proposes estimates of the ar
+ * as
+ those which render the total, or equivalently the average, of these efficiencies a maximum.</p>
+        <p><b>Maximum Performance Efficiency (MPE) Estimation Principle:</b> : In a performance model
+ depending on an unknown parameter vector, select as the estimate of the parameter vector
+ that value for which the total performance is greatest.</p>
+        <p> &nbsp;&nbsp;&nbsp;&nbsp; Use of the word performance is stressed in the MPE name to emphasize the more
+ general utility of the approach than was indicated by the earlier MDE term.  Managerial
+ performance, such as in the units under study here, involves many kinds, levels, and
+ horizons of decisions.</p>
+        <p> &nbsp;&nbsp;&nbsp;&nbsp;  Define the data elements Yrj
+ by Yrj
+ = yrj
+ /xj
+ .  Then the MPE estimation criterion for the
+ benchmark ar
+ * values is given by</p>
+        <img src="img1.png">
+        <p> Problem MPE is a linear programming problem.  Its unknown variables are the best practice
+ cost rates, the ar
+ * values.  Solution of this model provides values for the ar
+ * as well as the
+ unit efficiencies, vj
+ .  A model adequacy or validation approach for this estimation procedure
+ is proposed in a later section.  As a linear programming problem, the MPE model is readily
+ solved by a wide variety of commonly available software products.  MPE may be seen here
+ to be an estimation criterion analogous to the ordinary least squares error criterion in
+ regression.  The cost model, ∑ ar
+ Yrj
+ is analogous to the regression model.</p>
+        <center><h1><b> APPLICATION TO THE DATA</b></h1></center>
+        <p> &nbsp;&nbsp;&nbsp;&nbsp; In this section, we describe the data and apply the MPE estimation criterion.  In the initial
+ application of the MPE criterion one cost rate was estimated to be zero.  Here we concentrate
+ on the case in which all estimated cost rates must be positive and show how the MPE criterion
+ is modified for that case.
+<br>&nbsp;&nbsp;&nbsp;&nbsp;  The data for this study are from Dyson and Thanassoulis  (1988) and are reproduced
+ here in Table 1, first six columns.  These data were collected for a set of property tax collection
+ offices, called Rates Departments, in the London Boroughs and Metropolitan Districts.  A
+ more complete description of the data is given in Thanassoulis, Dyson, and Foster (1987).
+ Total annual costs, measured in units of £100,000 for these offices (units), were collected
+ along with activity driver levels for four activities.  The first three activities—collection of</p>
+        <img src="img2.png">
+        <img src="img3.png">
+        <p> non-council hereditaments, rate rebates generated, and summonses issued and distress
+ warrants obtained—were measured in units of 10,000, 1,000, and 1,000, respectively.  The
+ fourth— net present value of non-council rates collected, was measured in units of £10,000.
+ This last one was included as a cost driver (called an output by Dyson and Thanassoulis,
+ and Thanassoulis et al.) to reflect the additional administrative effort exerted to ensure the
+ timely payment of large revenue producing cases.</p>
+        <p>&nbsp;&nbsp;&nbsp;&nbsp; Thanassoulis et al. (1987) briefly discussed the possible disaggregation of the cost
+ pools.  They indicate that this would have been possible to some extent but decided against
+ this for several reasons.  First, these costs represented the cost of real resources used and
+ available for management deployment.  Next, they felt that the increased number of variables
+ that would result might tend to decrease the discrimination power of the data envelopment
+ analysis (DEA) method they were studying.  Next, and importantly, it was felt that the
+ disaggregated data were less reliable.  This concern is well founded, particularly in the present
+ context.  Datar and Gupta (1994) have shown that disaggregation can actually increase errors.
+<br>&nbsp;&nbsp;&nbsp;&nbsp; The method used in both Dyson and Thanassoulis (1988) and Thanassoulis et al (1987)
+ was a modification of data envelopment analysis (DEA), another efficiency estimation
+ technique.  It is worthwhile to briefly discuss DEA in regard to the above and other relevant  points.  An introduction to DEA is contained in Charnes, Cooper, Lewin, and Seiford. (1994).
+ There are several DEA models, but we limit our coverage to that used in Dyson and
+ Thanassoulis.  If we use the ar
+ notation for output weights in the DEA model M1 of Dyson
+ and Thanassoulis (page 564), we obtain the model(s):</p>
+        <img src="img4.png">
+         <p>&nbsp;&nbsp;&nbsp;&nbsp; Unlike the one-pass solution of model MPE, Model M1(jo
+ ) is solved for each unit, (jo
+ ),
+ in turn.  The solutions arjo
+ therefore depend on which unit is being featured in the objective
+ function.  Typically, some of the arjo
+ values will be zero for various units.  In the present cost
+ rates context, the following interpretation can be given to the M1(jo
+ ) DEA model.  If unit jo
+ were allowed to choose the activities and drivers to become applicable for the entire group
+ of units, then the M1(jo
+ ) model solution obtains these in such a way as to give that unit the
+ most favorable efficiency score.   The principal difficulty here is that no consensus is being
+ achieved on the most efficient cost rates.   With the M1 (jo
+ ) DEA model, each unit can select
+ cost rates that make it look most favorable.  Dyson and Thanassoulis (1988) call this
+ phenomenon weights flexibility. Their work was motivated, in part, to modify the M1(jo
+ ) DEA
+ technique to limit this flexibility, and  provides a more extensive discussion of this DEA
+ limitation.</p>
+        <p>&nbsp;&nbsp;&nbsp;&nbsp; Except in unusual circumstances, activity cost rates, ar
+ , can only be positive.  In this
+ section, we consider this requirement as a preemptive priority.   For the solution values, ar
+ *,
+ to be strictly positive, it is necessary that they be basic variables in an optimal solution.  This
+ may occur gratuitously.  Otherwise one or more may be non-basic, and therefore have value
+ zero.  The standard LP solution report provides reduced costs.  For a variable with optimal
+ value of zero, the reduced cost may be interpreted as follows.  It indicates the smallest amount
+ by which the objective function coefficient for the variable must be increased in order that
+ the variable becomes positive in an optimal solution.
+ The last column of Table 1 gives the efficiency scores obtained by model MPE with
+ preemptive positive costs.  Descriptive statistics have been added as supplemental information.
+<br>&nbsp;&nbsp;&nbsp;&nbsp; The MPE model was solved using SAS/IML software (1995), which includes a linear
+ programming call function.  The initial solution assigned a zero optimal value only to a1
+ *.  (The
+ full solution for this case was a1
+ *=0, a2
+ *=0.0882, a3
+ *=0.2671, a4
+ *=0.0664.) Thus, it was deemed
+ necessary to implement the preemptive positive weights modification.  The reduced cost for
+ variable a1
+ was given as -1.220440.  The objective coefficient was 55.52898.  Therefore, the
+ modified procedure required increasing the coefficient of a1
+ to 56.747.  The resulting estimates
+ were as follows:</p>
+        <p> &nbsp;&nbsp;&nbsp;&nbsp;a1
+ * =0.2618, a2
+ * =0.0494, a3
+ * =0.1398, a4
+ * =0.1280</p>
+        <img src="img5.png">
+        <p>The corresponding efficiency scores of the units are shown in the last column of Table 1.
+ Table 2 gives descriptive statistics for the Yr
+ data.</p>
+        <p> &nbsp;&nbsp;&nbsp;&nbsp; While not true for the example presented here, it is possible that more than one cost
+ rate is initially estimated as zero or the reduced cost is also zero when strict positivity is
+ required. Then, it is necessary to proceed as follows.  Suppose an auxiliary variable m, and
+ n
+ r
+ new constraints ar
+ ≥ m are joined to the MPE model.  If the optimal value of m is positive,
+ then so it must be also for all the cost rates. Let λ be a non-negative parameter chosen by the
+ analyst and consider the modified objective function given by</p>
+        <p> &nbsp;&nbsp;&nbsp;&nbsp; max  ∑∑
+ j r
+ ar  
+yrj 
++ λ m</p>
+        <p> When the value of λ is zero, the objective function is the same as the original one with m*
+ = 0.  We have the following theorem whose proof is given the Appendix.</p>
+        <img src="img6.png">
+        <p>&nbsp;&nbsp;&nbsp;&nbsp; We propose the solution for positive weights to be that corresponding to the greatest
+ lower bound of λ values for which m*(λ) > 0.  This may be estimated by trial and error. We
+ develop a rationale for such positive weights procedures by writing the MPE model objective
+ function in the form ∑ar
+ (∑ Yrj
+ ).  If maximization of this objective function yields a1
+ * = 0, then
+ evidently the coefficient, ∑ Y1j
+ is too small in some sense relative to the other coefficients.
+ It may be noted that the Yrj 
+= yrj
+ /xj
+ data are in the nature of reciprocal costs. When the sum
+ of these is too small, the implication is that their own reciprocals, the xj
+ /yrj
+ , are on average  too large. This is suggestive of inefficiency with respect to the r-th activity.  In such a case,
+ assignment of a zero optimal cost estimate would mask this kind of inefficiency.  By using
+ the reduced cost adjustment, or adding the λm term to the objective function, a compensation
+ is made for coefficients that are apparently too small in that sense.</p>
+        <p> &nbsp;&nbsp;&nbsp;&nbsp; Some comparisons with the results of Dyson and Thanassoulis (1988) can now be
+ discussed.  As part of their study, a regression through the origin was obtained. The
+ coefficients of that regression model can be interpreted as average cost rates for these
+ activities.  The results were as follows:</p>
+        <img src="img7.png">
+        <p> &nbsp;&nbsp;&nbsp;&nbsp; It will be noted that these average rates are uniformly higher than the presently
+ estimated rates in (3.4), giving a measure of face validity.  That is, it is necessary that the cost
+ rates of the most efficient units be lower than the average cost rates for all the units.  Also,
+ the four departments rated as most efficient by the present method are the same as those
+ indicated by the Dyson and Thanassoulis (1988) approach.</p>
+        <p> &nbsp;&nbsp;&nbsp;&nbsp;It may be observed that the preliminary regression step also gives information on the
+ a gives further evidence on that
+ question of positivity of the cost rates.  The positivity of 1
+ for a1
+ *.  Here 1
+ a is positive and significant.  (The significance level was not specified in Dyson
+ and Thanassoulis).  Since the units are assumed to be comparable, it appears unlikely that
+ one or a few could perform activity one with no cost while the typical unit does incur cost
+ for the activity.  If a particular unit could produce an activity with zero cost (ar
+ *= 0) while the
+ average unit does incur cost for the activity, then it must have a radically superior process
+ not actually comparable with the others.   Similarly, this regression model also validates
+ activity four as influential on costs. The next section discusses model aptness.</p>
+        <center><h1><b>ESTIMATION CRITERION QUALITY ISSUES</b></h1></center>
+        <p>&nbsp;&nbsp;&nbsp;&nbsp; A basic assumption underlying the MPE estimation principle’s applicability is that the
+ sample of units under analysis does, in fact, have the goal of achieving maximum (1.0)
+ efficiency. This is a model aptness issue that parallels the requirement of N(0,σ2) residuals
+ in OLS regression theory.  In the present MPE case, the corresponding issue is to specify
+ a measured characteristic of the vj
+ that indicates consistency with a goal or target of unity
+ (1.0) efficiency.  In this section, we propose what may be called the normal-like-or-better
+ effectiveness criterion for these fitted efficiency scores.</p>
+        <p>&nbsp;&nbsp;&nbsp;&nbsp; As a model for appropriate concentration on a target, we begin with an interpretation
+ of the multivariate normal distribution, N (µ,Σ), on 
+n
+ ℜ .  If a distribution of attempts has the
+ N(µ,Σ) or even higher concentration of density at the mode µ, then we propose this as
+ evidence that µ is indeed a plausible target of the attempts.  This is exemplified by considering
+ a distribution model for the results of throwing darts at a bull’s-eye target.  Common
+ experience suggests that a bivariate normal density represents such data reasonably well.
+ Steeper or flatter densities would still be indicative of effective attempts, but densities whose  modes do not coincide with the target would cause doubts about whether the attempts have
+ been effective or whether another target better explains the data. We call this normal-like-or
+better (NLOB) performance effectiveness.  It is next necessary to obtain the analog of this
+ criterion for the efficiency performance data Yrj
+ relevant to the present context</p>
+        <p>&nbsp;&nbsp;&nbsp;&nbsp; If x is distributed as N (µ,Σ) on 
+n
+ ℜ n, then it well known that the quadratic form, w(x)=
+ (x-µ)’Σ−1(x-µ) is gamma(α,β),  where  α = n/2 and  β=2.  This distribution is also called the Chi
+square distribution with n degrees of freedom (see Law & Kelton, 1982).  We may note that
+ for this case w(x) is in the nature of a squared distance from the  target set {µ}.  It is useful
+ to derive this result by a different technique. Vertical density representation (VDR) is a
+ technique for representing a multivariate density by way of a univariate density called the
+ ordinate or vertical density, and uniform distributions over the equidensity contours of the
+ original multivariate density.  VDR was introduced in Troutt (1993).  (See also Kotz, Fang &
+ Liang, 1997; Kotz & Troutt, 1996; Troutt ,1991; and Troutt & Pang, 1996.)  The version of VDR
+ needed for the present purpose can be derived as follows. Let w(x) be a continuous convex
+ function on 
+n
+ ℜ  with range [0,∞); and let g(w) be a density on [0,∞). Suppose that for each
+ value of u≥0, x is uniformly distributed on the set {x:w(x)=u}. Consider the process of sampling
+ a value of u according to the g(w) density, and then sampling a vector, x, according to the
+ uniform distribution on the set {x:w(x)=u}.  Next let f(x) be the density of the resulting x variates
+ on 
+n
+ ℜ .   Finally, let A(u)  be the volume (Lebesgue measure) of the set  {x : w(x) ≤ u}.  Then
+ we have the following VDR theorem that relates g(w) and f(x) in 
+n
+ ℜ .  The proof is given in
+ the Appendix.</p>
+        <img src="img8.png">
+        <p> &nbsp;&nbsp;&nbsp;&nbsp;For densities in Category (3), the unbounded mode concentrates more probability near
+ the target and suggests a higher level of expertise than that evidenced by the finite-at-mode
+ N(µ,Σ) class.  It seems reasonable to refer to α in this context as the expertise, mode, or target
+ effectiveness parameter, while β is a scale or precision parameter.  Thus, if α ≤ n/2, we call
+ ψ(x) the normal-like-or-better performance density.  To summarize, if attempts at a target set
+ in 
+n
+ ℜ have a basic squared distance error measure and this measure is distributed with the
+ gamma(α,β) density with α ≤ n/2,
+ then the performance with respect to this target set is normal
+like-or-better (NLOB).</p>
+        <p>   &nbsp;&nbsp;&nbsp;&nbsp;We extend this target effectiveness criterion to the present context as follows.  The
+ target set is {Y∈
+ ℜ : Σar 
+Yr
+ =1, Yr
+ ≥ 0 for all r}.  If Σar
+ Yrj
+ = vj,
+ then the distance of Yrj
+ from the
+ target set is  (1-v) Q%aQ%-1.  Since 0 ≤ v ≤ 1, we employ the transformation w =(-ln v)2  = (ln
+ v )2.   This transformation has the properties that w ≅ (1-v)2  near v=1  and  w∈[0,∞).  Therefore,
+ w/Q%aQ%2 = (ln v)2/Q%aQ%2  is an approximate squared distance measure near the target set.
+ Since the Q%aQ%2 term is a scale factor, it can be absorbed into the β parameter of gamma(α,β).
+ We therefore consider the NLOB effectiveness criterion to hold if w has the gamma(α,β)
+ density with α ≤  4/2
+ =2.   That is, such performance is analogous to that of unbiased normal
+like-or-better distributed attempts at a target in 
+n
+ ℜ . There is one additional consideration
+ before applying this effectiveness criterion to the present data.  In the LP estimation model
+ MPE, at least one efficiency, vj
+ , must be unity (and hence wj
+ = 0).  This is because at least
+ one constraint (2.6) must be active in an optimal solution of the MPE model.  We therefore
+ consider the model for the wj
+ to be</p>
+        <img src="img9.png">
+        <p> where p is the frequency of zero values (here p = 3/62 = 0.048 from Table 1), and  δ(0) is the
+ degenerate density concentrated at  w = 0.  We call this the gamma-plus-zero density,
+ gamma(α,β)+0 . For this data, we regard the NLOB criterion to hold if it holds for the gamma
+ density in (4.2).   When the gamma(α,β) density is fitted  to the strictly positive  w  values,
+ then NLOB requires that  α ≤ 2.  For the data of wj
+ = (ln vj
+ )2 based on Table 1, Column 7, the
+ parameter value estimates obtained by the Method of  Moments (see, for example, Bickell &
+ Doksum, 1977) are α = 1.07 and  β = 0.32.  This method was chosen because the BESTFIT
+ software experienced difficulty in convergence using its default Maximum Likelihood
+ Estimation procedure.  The Method of Moments estimates parameters by setting theoretical
+ moments equal to sample moments.  For the gamma(α,β) density, µ = αβ, and σ2 = αβ2.  If w
+ and s2 are the sample mean and variance of the positive wj
+ values, then the α and β estimates
+ are given by</p>
+        <img src="img10.png">
+        <p> Tests of fit of the wj
+ data to the gamma (α = 1.07, β = 0.32) density were carried out using the
+ software BestFit  (1995).  All three tests provided in BestFit —the Chi-square, Kolmogorov
+Smirnov, and the Anderson-Darling— indicated acceptance of the gamma model with
+ confidence levels greater than 0.95.  In addition, for each of these tests, the gamma model was
+ judged best fitting (rank one) among the densities in the library of BestFit . We therefore
+ conclude that the NLOB condition is met.  Use of the NLOB criterion in this way may be
+ regarded as somewhat stringent in that the zero data are only used to define the target and
+ are not used to assess NLOB target effectiveness.</p>
+        <p> &nbsp;&nbsp;&nbsp;&nbsp;The NLOB criterion is important in establishing whether the estimated cost model is
+ a plausible goal of the units being studied.  The MPE model will produce estimates for any
+ arbitrary set of Yrj
+ data.  However, if the resulting vj
+ data were, for example, uniformly
+ distributed on [0,1], there would be little confidence in the estimated model.</p>
+        <center><h1><b> LIMITATIONS</b></h1></center>
+        <p> &nbsp;&nbsp;&nbsp;&nbsp; Limitations may be discussed for both the new estimation technique itself and for its
+ application to the present context and data.  In order to more fully parallel existing OLS theory
+ for model aptness testing, attention should be given to potential outliers, independence of
+ the vj
+ , and constancy of the distribution of the vj
+ from trial to trial (analogous to homoscedasticity
+ in OLS theory; see, for example, Madansky, 1988, and Neter,  Wasserman & Kutner, 1985).
+ Theory developments for these issues are not yet available for the MPE model.</p>
+        <p> &nbsp;&nbsp;&nbsp;&nbsp; Hypothesis tests and confidence intervals for the estimates do not appear to be readily
+ derivable from the proposed approach.  However, information on their variances can be
+ obtained by simulation using additional specific assumptions.  As an illustration, 100 data
+ sets of 62 observations each were simulated as follows.  A value of vj 
+was generated using
+ the density model (4.2) and the estimates of p, α, and β.  Then a vector, Yrj, 
+was generated
+ according to the uniform distribution on the convex polytope {Y: 
+∑
+ r
+ a
+ a
+ r
+ *Yr
+ = vj
+ , Yr 
+≥ 0} where
+ r
+ * is given by (3.4).  Then the MPE model, (2.3)—(2.5) was solved for each data set and
+ descriptive statistics for the estimates were obtained.  Additional details on the simulation
+ steps are given in the Appendix.  The results are shown in Table 3.</p>
+        <img src="img11.png">
+        <p> &nbsp;&nbsp;&nbsp;&nbsp; The proposed NLOB criterion is a strong standard for performance effectiveness.  It
+ requires that squared distance performance with respect to the target set be as good or better
+ than that of unbiased multivariate normal-like performance with respect of a point target in
+ n
+ ℜ .  A still weaker class of target effectiveness densities might be developed in further
+ research by inclusion of a vector parameter corresponding to possible bias in the multivariate
+ normal-like model.</p>
+        <p>  &nbsp;&nbsp;&nbsp;&nbsp; With regard to limitations of the methodology for the application setting and data used
+ here, we discuss first the cost of unused capacity connection again.  A cost of unused
+ capacity in the Cooper and Kaplan (1992) sense, which can be denoted as sj
+ ck, might coexist
+ along with a cost of inefficiency, sj
+ I, as used in the present chapter; so that sj
+ = sj
+ ck + sj
+ I.  The
+ effect of such unused capacities, as distinct from costs of inefficiencies, on the present results
+ would be to understate the true efficiencies.   The approach taken with the MPE model is worst
+case in the sense that when the sj
+ ck are identifiable, the appropriate data adjustment would
+ be xj
+ ’ = xj
+ - sj
+ ck and the average performance efficiency would be expected to be larger.
+ Thanassoulis et al. (1987) also discuss what we have called comparability of these units.  A
+ concern was noted relative to activity four whose monetary driver level might have been
+ affected by the prosperity of the community being served.  That is, offices with above average
+ community prosperity and corresponding activity four levels might be considered as being
+ unfairly compared to the others.  Other things being equal, units with an inappropriately
+ inflated value of a driver level would be expected to exert heavy downward pressure on the
+ corresponding estimate in model MPE.  We believe this kind of incomparability should ideally
+ be removed by some kind of normalization process such as division by a socio-economic
+ index.  For the sake of concentrating on essential features of the present technique and
+ maintaining comparability with the results of Dyson and Thanassoulis (1988), we leave this
+ level of detailed analysis beyond the scope of the chapter.</p>
+        <p>&nbsp;&nbsp;&nbsp;&nbsp; In the use of the NLOB criterion for this data, the α parameter was compared to n/2 when
+ n=4 was chosen.  This assumes that the Yr
+ data are truly four-dimensional.  The discussion
+ of the data in Thanassoulis et al. (1987) suggested to us that units were free to emphasize or
+ vary all four drivers with the possible exception of the fourth one.  If this driver is regarded
+ as not available for improvement by the units, then the data should be considered as three
+dimensional.  In this case, the intended α would be compared with 1.5.  Since αˆ =1.07, the
+ NLOB criterion is still met by the data under this assumption.</p>
+        <center><h1><b> EXTENSIONS TO OTHER BASIC COST
+ MODELS</b></h1></center>
+        <p> &nbsp;&nbsp;&nbsp;&nbsp; This section discusses extensions to the three cases: (1) time-series data, (2) marginal
+ cost-oriented basic cost models, and (3) single driver-single cost pool data.</p>
+        <h1><b>Time-Series Data</b></h1>
+        <p> &nbsp;&nbsp;&nbsp;&nbsp; Suppose the data Yrt
+ are given over time periods indexed by t for a single business unit.
+ Then the MPE model with index j replaced by t can be applied.  First, it would be necessary  to adjust all the xt
+ cost-pool figures and resulting Yrt
+ data to reflect current dollars using a cost
+ index.  This assumes that the estimated ar
+ * cost rates are in terms of current dollars.  Next,
+ these rates would be interpretable as follows.  The estimated ar
+ * in the current dollar time
+series case may be interpreted to be the cost rate vector achieved by the unit during its most
+ efficient observation period or periods.  The resulting vt
+ suggest periods of more or less
+ efficiency, and would be a useful source for self-study aimed at productivity and process
+ improvements.</p>
+        <p> &nbsp;;&nbsp;&nbsp;&nbsp; The comparability issue for the units under comparison should be easier to accept in
+ this case.  However, process or technology changes during the data time span could be
+ problematical.  A more complete discussion of limitations for this case is left for specific future
+ applications.</p>
+        <p> &nbsp;;&nbsp;&nbsp;&nbsp; In addition to the NLOB effectiveness test, additional considerations can be brought
+ to bear with respect to an improvement over time dimension.  Effectiveness in this respect
+ would be supported by establishing a significant fit of the vt
+ data to a monotone increasing
+ function of time, for example, the reciprocal of a learning curve.  Over longer periods of times,
+ learning curve patterns for the estimated gamma parameters could serve similarly.  That is,
+ decreasing α indicates improving target effectiveness, while decreasing β would indicate
+ improving precision.</p>
+        <h1><b>Marginal Cost-Oriented Basic Cost Models</b></h1>
+        <p>&nbsp;&nbsp;&nbsp;&nbsp; Both the time-series and cross-sectional versions of the MPE model can be adapted
+ to nonlinear basic cost models with marginal cost features.  For example, consider the original
+ cross-sectional case, but using the basic cost model</p>
+        <img src="img12.png">
+        <p> Again s is interpreted as a possible inefficiency due to experiencing higher than benchmark
+ a
+ r
+ and/or br
+ values.  The cost of service provided by activity r is ar
+ * yr
+  + br
+ * yr
+ 2 for efficient
+ units.  By differentiation, the marginal cost by this model for activity r becomes ar
+ * + 2br
+ *yr
+ at the observed driver level.  Defining new data elements Yrj
+ (2) = y2
+ rj
+ /xj
+ , the modified MPE
+ model becomes</p>
+        <img src="img13.png">
+        <p> The constraints (6.4) ensure that cost contributions can only be non-negative, even if some
+ b
+ r
+ is negative. In that case, the marginal rate is decreasing; if these coefficients are positive,
+ the corresponding marginal rates are increasing. Here a quadratic basic cost model was used.
+ More generally, other models with different marginal cost structures could be employed (e.g.,
+ Cobb-Douglas as in Noreen and Soderstrom, 1994).</p>
+        <h1><b> Implications for the Single Driver Single Cost Pool
+ Case</b></h1>
+        <p>&nbsp;&nbsp;&nbsp;&nbsp; The MPE model for this case simplifies to max ∑ a Yj 
+, s.t. a Yj
+ ≤ 1, for all j, and a ≥ 0. The
+ solution of this model is clearly a* = min Yj-1  = min xj
+ /yj
+ . The NLOB criterion requires α* ≤
+ ½ in this case. If this condition fails to hold, then this minimum value may be unreasonably
+ low, perhaps due to an outlier.  Deletion of one or a few such tentative outliers would be well
+ supported if the remaining data do, in fact, pass the NLOB test. Otherwise no credible ar
+ estimate is forthcoming from the present method. It should be noted that the simulation
+ method could also be employed for this case, provided the NLOB criterion is met.</p>
+        <center><h1><b>DATA-MINING APPLICATIONS AND<br>CONSIDERATIONS</b></h1></center>
+        <p>&nbsp;&nbsp;&nbsp;&nbsp;  Benchmark estimation models, such as those considered here, may also be called
+ frontier regression models.  The general application of these in data mining has been
+ discussed in Troutt, Hu, Shanker, and Acar (2001).  They are formed to explain boundary,
+ frontier or optimal behavior rather than average behavior as, for example, in ordinary
+ regression models.  Such a model may also be called a ceiling model if it lays above all the
+ observations or a floor model in the opposite case. The cost-estimation model of this chapter
+ is a floor model since it predicts the best, i.e., lowest, cost units.</p>
+        <p> &nbsp;&nbsp;&nbsp;&nbsp;The model considered here is a cross-sectional one. Although data mining is ordinarily
+ thought of from the perspective of mining data from within a single organization, benchmarking
+ type studies must often involve comparisons of data across organizations. Benchmarking
+ partnerships have been formed for this purpose as discussed in Troutt, Gribbin, Shanker, and
+ Zhang (2000).  Such benchmarking-oriented data mining might be extended in a number of
+ directions. Potential applications include comparisons of quality and other costs, processing
+ and set-up times, and employee turnover.  More generally, benchmarking comparisons could
+ extend to virtually any measure of common interest across firms or other entities, such as
+ universities, states, and municipalities.  In the example in this chapter, a simple cost model
+ was used to explain best practice performance.  More generally, best practice performance
+ may depend on other explanatory variables or categories of interest to the firm.  Discovery
+ of such models, variables, and categories might be regarded as the essence of data mining.
+ With techniques discussed here, the difference is the prediction of frontier rather than
+ average performance. For example, interest often centers on best instances such as customers
+ most responsive to mailings, safest drivers, etc.</p>
+        <p> &nbsp;&nbsp;&nbsp;&nbsp; However, cross-sectional applications of benchmark performance models do not
+ necessarily depend on the multiple firm situations.  Mining across all a firm’s customers can
+ also be of interest.  Consider a planned mail solicitation of a sales firm. For mailings of a given
+ type, it is desirable to predict the set of most responsive customers so that it can be targeted.
+ Similarly, a charitable organization may be interested in discovering how to characterize its
+ best or worst supporters according to a model.</p>
+        <p>&nbsp;&nbsp;&nbsp;&nbsp; As noted above, under the topic of time-series data, such frontier models can be used
+ within a single organization where the benchmarking is done across time periods.  Models
+ of this type might be used to mine for explanatory variables or conditions that account for  best or worst performance periods. Some of the same subjects as noted above for cross
+sectional studies may be worthwhile targets.  For example, it would be of interest for quality
+ assurance to determine the correlates of best and worst defect production rates.</p>
+        <p>&nbsp;&nbsp;&nbsp;&nbsp;Ordinary regression is one of the most important tools for data mining.  Frontier models,
+ such as considered here, may be desirable alternatives in connection with data-mining
+ applications. This is especially the case when it is desired to characterize and model the best
+ and/or worst cases in the data. Such data are typically of the managed kind.  In general, such
+ managed data or data from purposeful or goal-directed behavior will be amenable to frontier
+ modeling.</p>
+        <center><h1><b>CONCLUSIONS</b></h1></center>
+        <p> &nbsp;&nbsp;&nbsp;&nbsp;This chapter proposes a method for estimating what may be called benchmark, or
+ best practice unit and marginal cost rates.  These rates provide plausible operational
+ goals for the management of the units being compared.  This method also provides
+ efficiency measures and suggests which organizational units or time periods are more or
+ less efficient, as well as an estimate of the degree of such inefficiency.  Efficient units or
+ time periods provide benchmarks for imitation by other units or can be studied for
+ continuous improvement possibilities. As far as the authors can determine, the proposed
+ methodology is the first technique with the capability to suggest plausible benchmark
+ cost rates.</p>
+        <p> &nbsp;&nbsp;&nbsp;&nbsp;A principle of maximum performance efficiency (MPE) was proposed as a generali
+zation of the maximum decisional efficiency estimation principle in Troutt (1995).  This
+ principle is more broadly applicable than the MDE principle.  Also, a gamma distribution
+based validation criterion was proposed for the new MPE principle.  The earlier MDE
+ principle appealed to the maximum likelihood estimation principle for model aptness
+ validation, but required relatively inflexible density models for the fitted efficiency
+ scores.</p>
+        <p> &nbsp;&nbsp;&nbsp;&nbsp; The estimation models derived here reduce to straightforward linear programming
+ models and are therefore widely accessible.  A case was made that an optimal cost rate
+ estimate of zero for some activity may be indicative of generally poor efficiency across
+ the units with respect to one or more activities.  Modifications based on reduced costs
+ and augmented objective functions were proposed to compensate in that case.
+ <br> &nbsp;&nbsp;&nbsp;&nbsp;In these models, the unknown cost rate parameters resemble the coefficients of
+ linear regression models.  However, the maximum performance efficiency estimation
+ principle is employed rather than a criterion such as ordinary least squares.  This principle
+ assumes that for each organizational unit and time period, the unit intends to minimize
+ these costs.  Model adequacy with respect to this assumption was judged by a test of
+ normal-like-or-better performance effectiveness for the estimated efficiency scores.
+ <br> &nbsp;&nbsp;&nbsp;&nbsp;These results are also consistent with Noreen and Soderstrom (1994) who found
+ that costs were not generally proportional to activity levels in a cross-sectional study
+ of hospital accounts.  The results of this chapter suggest that one source of such non
+proportionality, in addition to the possibly non-linear form of the basic cost model, is
+ what we call performance inefficiency.</p>
+        <p> &nbsp;&nbsp;&nbsp;&nbsp; The proposed estimation criterion was applied to a published data set previously
+ analyzed by a modified data envelopment analysis method.  The resulting estimates were
+ compared with the average costs obtained by the previous method.  The estimated
+ benchmark cost rates were uniformly and strictly lower than their average rate counter
+parts, consistent with their definitions and providing a strong measure of face validity.
+ <p> &nbsp;&nbsp;&nbsp;&nbsp;Benchmarking estimation models, such as discussed here, provide a new tool for
+ data mining when the emphasis is on modeling the best performers</p>
+        <center><h1><b> REFERENCES</b></h1></center>
+        <p> Berson, A., Smith, S., & Thearling, K (2000). Building data mining applications for CRM.
+ <br>&nbsp;&nbsp;&nbsp;&nbsp;New York: McGraw-Hill.
+ BestFit™(1995). User’s guide. Palisade Corporation, Newfield, NY.
+ Bickell, P.J. & Doksum, K.A. (1977). Mathematical statistics: Basic ideas and selected
+ <br>&nbsp;&nbsp;&nbsp;&nbsp;topics. San Francisco: Holden Day, Inc.
+ Charnes, A., Cooper, W.W., Lewin, A., & Seiford, L.M. (1994). Data envelopment
+<br>&nbsp;&nbsp;&nbsp;&nbsp; analysis: Theory, methodology, and applications. Boston, MA: Kluwer Academic
+<br>&nbsp;&nbsp;&nbsp;&nbsp; Publishers.
+ Cooper, R. & Kaplan, R.S. (1992). Activity-based systems: Measuring the costs of
+ <br>&nbsp;&nbsp;&nbsp;&nbsp;resource usage. Accounting Horizons, September, 1-13.
+ Datar, S. & Gupta, M. (1994). Aggregation, specification and measurement errors in
+<br>&nbsp;&nbsp;&nbsp;&nbsp; product costing. The Accounting Review, 69(4), 567-591.
+ Demski, J. (1967). An accounting system structured on a linear programming model. The
+<br>&nbsp;&nbsp;&nbsp;&nbsp; Accounting Review, 42(4), 701-712.
+ Devroye, L. (1986). Non-uniform random variate generation. New York: Springer
+<br>&nbsp;&nbsp;&nbsp;&nbsp;Verlag.
+ Dyson, R.G. & Thanassoulis, E. (1988). Reducing weight flexibility in data envelopment
+<br>&nbsp;&nbsp;&nbsp;&nbsp; analysis. Journal of the Operational Research Society, 39(6), 563-576.
+ Fleming, W. (1997). Functions of several variables, 2nd  ed. New York: Springer-Verlag.
+ Itami, H. & Kaplan, R. (1980). An activity analysis approach to unit costing with multiple
+<br>&nbsp;&nbsp;&nbsp;&nbsp; interactive products. Management Science, 26(8), 826-839.
+ Kaplan, R. & Thompson, G. (1971). Overhead allocation via mathematical programming
+<br>&nbsp;&nbsp;&nbsp;&nbsp; models. The Accounting Review, 46(2), 352-364.
+ Kotz, S., Fang, K.T., & Liang, J.T. (1997). On multivariate vertical density representation
+ <br>&nbsp;&nbsp;&nbsp;&nbsp;and its application to random number generation. Statistics, 30, 163-180.
+ Kotz, S. & Troutt, M.D. (1996). On vertical density representation and ordering of
+<br>&nbsp;&nbsp;&nbsp;&nbsp; distributions. Statistics, 28, 241-247.
+ Law, A.M. & Kelton, W.D. (1982) Simulation modeling and analysis. New York:
+<br>&nbsp;&nbsp;&nbsp;&nbsp; McGraw-Hill.
+ Madansky, A. (1988). Prescriptions for working statisticians., New York: Springer
+<br>&nbsp;&nbsp;&nbsp;&nbsp;Verlag.
+ Neter, J., Wasserman, W., & Kutner, M.H. (1985). Applied linear statistical models, 2nd
+ <br>&nbsp;&nbsp;&nbsp;&nbsp;ed.  Homewood, IL: Richard E. Irwin, Inc.
+ Noreen, E. & Soderstrom, N. (1994). Are overhead costs strictly proportional to activity?
+<br>&nbsp;&nbsp;&nbsp;&nbsp; Journal of Accounting and Economics, 17, 255-278  Onsi, M. (1970). Transfer pricing systems based on opportunity cost. The Accounting
+ <br>&nbsp;&nbsp;&nbsp;&nbsp;Review, 40(3), 535-543.
+ SAS/IML Software (1995). Usage and reference. Version 6, 1st ed., SAS Institute, Inc.,
+<br>&nbsp;&nbsp;&nbsp;&nbsp; Cary, N. C.
+ Schmeiser, B.W. & Lal, R. (1980). Squeeze methods for generating gamma variates.
+ <br>&nbsp;&nbsp;&nbsp;&nbsp;Journal of the American Statistical Association, 75, 679-682.
+ Thannassoulis, E., Dyson, R.G., & Foster, M.J. (1987). Relative efficiency assessments
+<br>&nbsp;&nbsp;&nbsp;&nbsp; using data envelopment analysis: An application to data on rates departments.
+ Journal of the Operational Research Society, 38(5), 397-411.
+ <br>&nbsp;&nbsp;&nbsp;&nbsp;Troutt, M.D. (1991). A theorem on the density of the density ordinate and alternative
+ <br>&nbsp;&nbsp;&nbsp;&nbsp;derivation of the Box-Muller method. Statistics, 22, 436-466.
+ Troutt, M.D. (1993). Vertical density representation and a further remark on the Box
+<br>&nbsp;&nbsp;&nbsp;&nbsp;Muller method. Statistics, 24, 81-83.
+ Troutt, M.D. (1995). A maximum decisional efficiency estimation principle, Management
+<br> Science, 41(1), 76-82.
+ Troutt, M.D. (1997). Derivation of the maximum efficiency ratio model from the maximum
+ <br>&nbsp;&nbsp;&nbsp;&nbsp;decisional efficiency principle. Annals of Operations Research, 73, 323-338.
+ Troutt, M.D., Gribbin, D.W., Shanker. M., & Zhang. A. (2000). Cost-efficiency
+ benchmarking for operational units with multiple cost drivers. Decision Sciences,
+ <br>&nbsp;&nbsp;&nbsp;&nbsp;31(4), 813-832.
+ Troutt, M.D., Hu, M., Shanker, M. & Acar, W. (2001). Frontier versus ordinary regression
+ <br>&nbsp;&nbsp;&nbsp;&nbsp;models for data mining. In Parag C. Pendharkar (ed.), Managing data mining
+<br>&nbsp;&nbsp;&nbsp;&nbsp; technologies in organizations: Techniques and applications.  Hershey, PA: Idea
+<br>&nbsp;&nbsp;&nbsp;&nbsp; Group Publishing Co.
+ Troutt, M.D. & Pang, W.K. (1996). A further VDR-type density representation based on
+ <br>&nbsp;&nbsp;&nbsp;&nbsp;the Box-Muller method. Statistics. 28, 1-8.
+ Troutt, M.D., Zhang, A., Tadisina, S.K., & Rai, A. (1997). Total factor efficiency/
+ <br>&nbsp;&nbsp;&nbsp;&nbsp;productivity ratio fitting as an alternative to regression and canonical correlation
+<br>&nbsp;&nbsp;&nbsp;&nbsp; models for performance data. Annals of Operations Research, 74, 289-304.</p>
+        <center><h1><b> APPENDIX</b></h1></center>
+    <h1><b>Proof of Theorem 1:</b></h1>
+     <ol class="theoClass">
+         <li seq="1">Consider the potentially feasible solution 
+∑
+ a
+ 0
+ r
+ Y
+ rj
+ =
+ Thus the solution 
+k
+ m
+ ∑
+ 0
+ r
+ (Y
+ rj
+ =
+ k
+ )
+ =
+ ≤
+ a
+ 1
+ 0
+ r
+ m
+ 0
+ =
+ if k ≤ (ΣYrj
+ )-1 for all j.
+ k
+ =
+ a
+ 0
+ r
+ for all r.  Then,<br>
+ is feasible for problem MPE (λ) for all λ > 0,
+ for k0= min (Σyrj
+ )-1 which is positive due to the positivity of the data. It follows that.<br>
+ z(λ*) ≥ ∑∑
+ a0
+ r 
+Y
+ rj
+ j r
+ +
+ λ m0  =  k0 Σ ΣYrj 
++ λ k0   ≥  k0 λ, for all λ > 0.</li>
+          <li seq="2"> Here we note that the ar
+ * 
+(λ) for the MMPE model, while feasible, are not necessarily<br>
+ optimal for the original MPE model. Hence use of these values in the MPE objective<br>
+ function will generally give a lower objective function value.</li>
+     </ol>
+<h1><b> Proof of Theorem 2</b></h1>
+        <p> This is a modification of a proof for a version of the theorem given in Troutt (1993). By the
+ assumption that x is uniformly distributed on {x:w(x) = u}, f(x) must be constant on these
+ contours; so that f(x) = ϕ(w(x)) for some function, ϕ(⋅) . Consider the probability P( u ≤ w(x)
+ ≤ u + ε ) for a small positive number, ε. On the one hand, this probability is ε g(u) to a first
+ order approximation. On the other hand, it is also given by</p>
+       <img src="img14.png">
+        <h1><b>Further Details on the Simulation Experiment</b></h1>
+        <p> &nbsp;&nbsp;&nbsp;&nbsp;To simulate observations within each data set, a uniform random number was used
+ to choose between the degenerate and continuous portions in the density model</p>
+        <img src ="img15.png">
+        <p> where p =0.048, α=1.07, and β=0.32. With probability p, δ(0) was chosen and w=0 was returned.<br>
+ With probability 1-p, the gamma (α,β) density was chosen and a value, w, was returned using<br>
+ the procedure of Schmeiser and Lal (1980) in the IMSL routine RNGAM. The returned w was<br>
+ converted to an efficiency score, v, according to v=exp{-w0.5}. For each v, a vector Y was<br>
+ generated on the convex polytope with extreme points e1
+ =(v/a1
+ *,0,0,0), e2
+ =(0,v/a2
+ *,0,0),<br>
+ e3
+ =(0,0,v/a3
+ *,0) and e4
+ =(0,0,0,v/a4
+ * 
+) using the method given in Devroye (1986).</p>
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+    </body>
+    
+    
+</html>
